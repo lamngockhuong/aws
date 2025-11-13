@@ -1,0 +1,36 @@
+{
+  "name": "aws",
+  "version": "1.0.0",
+  "description": "AWS documentation",
+  "author": "Lam Ngoc Khuong <hi@khuong.dev>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lamngockhuong/aws.git"
+  },
+  "homepage": "https://aws.khuong.dev",
+  "bugs": {
+    "url": "https://github.com/lamngockhuong/aws/issues"
+  },
+  "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs",
+    "prepare": "husky || true"
+  },
+  "dependencies": {
+    "@miletorix/vitepress-back-to-top-button": "1.0.1",
+    "@miletorix/vitepress-image-viewer": "1.1.4",
+    "vitepress-mermaid-renderer": "1.1.5"
+  },
+  "devDependencies": {
+    "@commitlint/config-conventional": "20.0.0",
+    "husky": "9.1.7",
+    "markdown-it-task-lists": "2.1.1",
+    "sharp": "0.34.5",
+    "svgo": "4.0.0",
+    "vite-plugin-image-optimizer": "2.0.3",
+    "vitepress": "2.0.0-alpha.13"
+  },
+  "packageManager": "pnpm@10.21.0+sha512.da3337267e400fdd3d479a6c68079ac6db01d8ca4f67572083e722775a796788a7a9956613749e000fac20d424b594f7a791a5f4e2e13581c5ef947f26968a40"
+}

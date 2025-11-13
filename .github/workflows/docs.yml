@@ -1,0 +1,29 @@
+name: Docs CI
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'docs/**'
+      - 'pnpm-lock.yaml'
+      - 'package.json'
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+      - uses: pnpm/action-setup@v4
+      - name: Setup Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: pnpm
+      - name: Install dependencies
+        run: pnpm install
+      - name: Build with VitePress
+        run: pnpm docs:build
