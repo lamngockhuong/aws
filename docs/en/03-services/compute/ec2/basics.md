@@ -1,259 +1,49 @@
 # EC2 Basics
 
-This guide covers the fundamentals of launching and managing Amazon EC2 instances, from choosing the right configuration to connecting to your instances.
+## Summary
 
-## Getting Started
+- Launching EC2 safely and efficiently means following a clear flow: **choose AMI and instance type → configure network and security → attach storage → tag → launch and connect → monitor and adjust**.
+- You can access EC2 via the console, CLI, SDKs, or Infrastructure as Code tools (CloudFormation/Terraform), but the core concepts (AMI, instance type, VPC, Security Group, key pair) are the same.
+- Good day‑0 setup (IAM Role, Security Groups, tags, monitoring) dramatically simplifies day‑2 operations (patching, scaling, troubleshooting, cost control).
 
-### Prerequisites
+## Launch & manage EC2 instances (flow)
 
-- AWS account with appropriate permissions
-- Basic understanding of cloud computing concepts
-- Familiarity with command-line tools (optional)
-
-### First Steps
-
-1. **Sign in to AWS Console**: Access EC2 service
-2. **Choose a Region**: Select the region closest to your users
-3. **Launch an Instance**: Use the Launch Instance wizard
-4. **Connect to Instance**: Use SSH (Linux) or RDP (Windows)
-
-## Launching an Instance
-
-### Step 1: Choose an AMI
-
-**Amazon Machine Images (AMIs)** are templates that contain:
-
-- Operating system (Linux, Windows, etc.)
-- Application server or software
-- Configuration settings
-
-**Types of AMIs:**
-
-- **Amazon Linux AMI**: Optimized for AWS
-- **Ubuntu**: Popular Linux distribution
-- **Windows Server**: Microsoft Windows
-- **Custom AMIs**: Your own configured images
-
-### Step 2: Choose an Instance Type
-
-Instance types determine:
-
-- **vCPU**: Number of virtual CPUs
-- **Memory**: Amount of RAM
-- **Storage**: Instance store volumes
-- **Network Performance**: Network bandwidth
-
-**Common Instance Families:**
-
-- **General Purpose**: Balanced compute, memory, and networking
-- **Compute Optimized**: High-performance processors
-- **Memory Optimized**: Large memory for in-memory databases
-- **Storage Optimized**: High, sequential read/write access
-- **Accelerated Computing**: Hardware accelerators (GPUs, FPGAs)
-
-### Step 3: Configure Instance Details
-
-**Key Configuration Options:**
-
-- **Number of Instances**: Launch one or multiple instances
-- **Purchasing Options**: On-Demand, Reserved, Spot, Dedicated
-- **Network**: VPC and subnet selection
-- **IAM Role**: Permissions for the instance
-- **Shutdown Behavior**: Stop or terminate
-- **Monitoring**: Enable detailed monitoring
-
-### Step 4: Add Storage
-
-**Storage Options:**
-
-- **Root Volume**: Boot volume for the OS
-- **Additional EBS Volumes**: Persistent block storage
-- **Instance Store Volumes**: Ephemeral storage (some instance types)
-
-**Volume Types:**
-
-- **gp3**: General purpose SSD (recommended)
-- **gp2**: General purpose SSD (legacy)
-- **io1/io2**: Provisioned IOPS SSD
-- **st1**: Throughput optimized HDD
-- **sc1**: Cold HDD
-
-### Step 5: Add Tags
-
-Tags help you:
-
-- Organize resources
-- Track costs
-- Manage resources programmatically
-
-**Common Tags:**
-
-- Name: Instance name
-- Environment: dev, staging, prod
-- Project: Project identifier
-- Owner: Team or individual
-
-### Step 6: Configure Security Group
-
-**Security Groups** are virtual firewalls that control:
-
-- Inbound traffic (to your instance)
-- Outbound traffic (from your instance)
-
-**Best Practices:**
-
-- Restrict SSH/RDP access to your IP
-- Use least privilege principle
-- Separate security groups by function
-- Document security group rules
-
-### Step 7: Review and Launch
-
-- Review all configurations
-- Select or create a key pair
-- Launch the instance
-
-## Connecting to Instances
-
-### Linux/Unix Instances
-
-**Using SSH:**
-
-```bash
-ssh -i your-key.pem ec2-user@public-ip-address
+```mermaid
+flowchart TD
+  A[Choose Region] --> B[Select AMI]
+  B --> C[Choose Instance Type]
+  C --> D["Configure Network (VPC, Subnet, Security Group)"]
+  D --> E["Choose Storage (EBS, instance store)"]
+  E --> F[Attach IAM Role + Tags]
+  F --> G[Review & Launch]
+  G --> H["Connect (SSH/RDP/EC2 Instance Connect)"]
+  H --> I[Monitor with CloudWatch]
+  I --> J[Right-size / Auto Scale / Stop or Terminate]
 ```
 
-**Common Users:**
+## Best Practices
 
-- Amazon Linux: `ec2-user`
-- Ubuntu: `ubuntu`
-- RHEL: `ec2-user` or `root`
-- SUSE: `ec2-user` or `root`
+- **Standardize how you launch instances** using Launch Templates or IaC instead of ad‑hoc console clicks; this ensures consistent AMIs, Security Groups, IAM Roles, and tags.
+- Always use an **IAM Role** for applications that call AWS APIs; never store long‑lived access keys on the instance.
+- **Lock down Security Groups** to only required ports and trusted sources (e.g. your office IP for SSH/RDP), and separate groups per tier (web/app/db).
+- **Separate OS and data** into different volumes, enable EBS encryption, and use snapshots or AWS Backup for regular, automated backups.
+- Turn on **monitoring and logging from day one** (detailed monitoring, CloudWatch Logs) and set basic alarms for CPU, status checks, disk, and network.
+- Manage lifecycle: stop or terminate unused instances, and ensure every instance has **meaningful tags** (Environment, Owner, Project, CostCenter).
 
-### Windows Instances
+## Exam Notes
 
-**Using RDP:**
+- Know the **Launch Instance wizard steps** and what each concept means (AMI, instance type, key pair, Security Group, VPC/subnet, storage, tags).
+- Understand the different ways to connect to EC2 (SSH, RDP, EC2 Instance Connect, Systems Manager Session Manager) and when AWS recommends each.
+- Remember what happens to **EBS vs instance store data** when stopping or terminating an instance, and how billing behaves in each state.
+- IAM Role + Security Group + private subnets are the “safe default” design in most exam scenarios; hard‑coded credentials or wide‑open SGs are almost always wrong.
 
-1. Get the administrator password from EC2 console
-2. Download the RDP file
-3. Connect using Remote Desktop
+## AWS documentation
 
-**Using EC2 Instance Connect:**
+- [Get started with Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html)
 
-- Browser-based SSH connection
-- No need to manage keys
-- Available for Amazon Linux 2
+## Related docs in this Hub
 
-## Instance Management
-
-### Starting and Stopping
-
-- **Start**: Launch a stopped instance
-- **Stop**: Gracefully shut down (data preserved)
-- **Reboot**: Restart without stopping
-- **Terminate**: Permanently delete instance
-
-### Monitoring
-
-**CloudWatch Metrics:**
-
-- CPU utilization
-- Network in/out
-- Disk read/write
-- Status checks
-
-**Status Checks:**
-
-- **System Status**: Physical host issues
-- **Instance Status**: Software/network issues
-
-### Modifying Instances
-
-**What Can Be Modified:**
-
-- Instance type (stop instance first)
-- Security groups
-- EBS volumes (add/remove)
-- User data (before first launch)
-
-**What Cannot Be Modified:**
-
-- AMI (must launch new instance)
-- Placement group (after launch)
-- Tenancy (after launch)
-
-## Common Tasks
-
-### Installing Software
-
-**Amazon Linux:**
-
-```bash
-sudo yum update -y
-sudo yum install -y package-name
-```
-
-**Ubuntu:**
-
-```bash
-sudo apt update
-sudo apt install -y package-name
-```
-
-### Configuring Web Server
-
-**Apache (Amazon Linux):**
-
-```bash
-sudo yum install -y httpd
-sudo systemctl start httpd
-sudo systemctl enable httpd
-```
-
-**Nginx (Ubuntu):**
-
-```bash
-sudo apt install -y nginx
-sudo systemctl start nginx
-sudo systemctl enable nginx
-```
-
-### Transferring Files
-
-**Using SCP:**
-
-```bash
-scp -i key.pem file.txt ec2-user@public-ip:/path/
-```
-
-**Using SFTP:**
-
-```bash
-sftp -i key.pem ec2-user@public-ip
-```
-
-## Security Best Practices
-
-1. **Use Key Pairs**: Never share private keys
-2. **Restrict Security Groups**: Only allow necessary ports
-3. **Keep Systems Updated**: Regular security patches
-4. **Use IAM Roles**: Instead of access keys on instances
-5. **Enable CloudWatch Logs**: Monitor system logs
-6. **Use VPC**: Network isolation
-7. **Encrypt EBS Volumes**: Protect data at rest
-
-## Cost Optimization
-
-1. **Right-Size Instances**: Match workload to instance type
-2. **Use Reserved Instances**: For predictable workloads (up to 72% savings)
-3. **Use Spot Instances**: For fault-tolerant workloads (up to 90% savings)
-4. **Stop Unused Instances**: Don't pay for stopped instances
-5. **Use Auto Scaling**: Scale down during low demand
-6. **Monitor Costs**: Use Cost Explorer and billing alerts
-
-## Next Steps
-
-- [Instance Types](./instance-types.md) - Learn about different instance types
-- [Networking](./networking.md) - Configure EC2 networking
-- [Storage](./storage.md) - Understand EC2 storage options
-- [Best Practices](./best-practices.md) - EC2 best practices
+- [EC2 Instance Types](./instance-types.md)
+- [EC2 Networking](./networking.md)
+- [EC2 Storage](./storage.md)
+- [EC2 Best Practices](./best-practices.md)

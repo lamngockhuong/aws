@@ -1,309 +1,101 @@
 # Ghi chú Thi EC2
 
-Các điểm chính về EC2 cho các kỳ thi chứng chỉ AWS. Hướng dẫn này bao gồm các khái niệm EC2 thường được kiểm tra trong các kỳ thi chứng chỉ AWS.
-
-## Khái niệm Cốt lõi
-
-### Instance Types
-
-**Instance Families:**
-
-- **General Purpose (M, T)**: Cân bằng compute, memory, network
-- **Compute Optimized (C)**: Tỷ lệ CPU-to-memory cao
-- **Memory Optimized (R, X)**: Tỷ lệ memory-to-CPU cao
-- **Storage Optimized (I, D, H)**: Hiệu suất I/O cao
-- **Accelerated Computing (P, G)**: GPU instances
-
-**Điểm chính:**
-
-- T2/T3 là burstable (CPU credits)
-- Current generation được khuyến nghị (M6i, C6i, R6i)
-- Metal instances = bare metal access
-- Đặt tên instance: `[family][generation].[size]`
-
-### Mô hình Giá cả
-
-**On-Demand:**
-
-- Thanh toán theo giờ/giây
-- Không có cam kết
-- Chi phí cao nhất
-- Sử dụng cho: Variable workloads
-
-**Reserved Instances:**
-
-- 1 năm: Tiết kiệm lên đến 40%
-- 3 năm: Tiết kiệm lên đến 72%
-- Standard vs. Convertible
-- Sử dụng cho: Predictable workloads
-
-**Spot Instances:**
-
-- Giảm giá lên đến 90%
-- Có thể bị gián đoạn (thông báo 2 phút)
-- Sử dụng cho: Fault-tolerant workloads
-
-**Savings Plans:**
-
-- Tiết kiệm lên đến 72%
-- Linh hoạt qua các instance families
-- Cam kết 1 năm hoặc 3 năm
-
-### Vòng đời Instance
-
-**Các trạng thái:**
-
-- **Pending**: Đang khởi chạy
-- **Running**: Đang hoạt động
-- **Stopping**: Đang tắt
-- **Stopped**: Không chạy (EBS được giữ lại)
-- **Shutting-down**: Đang terminate
-- **Terminated**: Đã xóa
-
-**Điểm chính:**
-
-- Instance store data bị mất khi stop/terminate
-- EBS data được giữ lại khi stop
-- Không thể khôi phục terminated instances
-- Billing dừng khi terminated
-
-## Storage
-
-### Các loại EBS Volume
-
-**gp3 (General Purpose SSD):**
-
-- Baseline: 3,000 IOPS, 125 MB/s
-- Max: 16,000 IOPS, 1,000 MB/s
-- Sử dụng cho: Hầu hết workloads
-
-**io1/io2 (Provisioned IOPS SSD):**
-
-- Max: 64,000 IOPS (io1), 256,000 IOPS (io2)
-- Max: 1,000 MB/s throughput
-- Multi-attach được hỗ trợ (io1/io2)
-- Sử dụng cho: Databases, IOPS cao
-
-**st1 (Throughput Optimized HDD):**
-
-- Max: 500 MB/s, 500 IOPS
-- Sử dụng cho: Big data, sequential workloads
-
-**sc1 (Cold HDD):**
-
-- Max: 250 MB/s, 250 IOPS
-- Sử dụng cho: Dữ liệu ít được truy cập
-
-### Instance Store
-
-**Đặc điểm:**
-
-- Ephemeral (dữ liệu bị mất khi stop/terminate)
-- Hiệu suất cao (local NVMe)
-- Không phải tất cả instance types
-- Sử dụng cho: Cache, temporary data
-
-### Snapshots
-
-**Tính năng:**
-
-- Incremental (chỉ các blocks thay đổi)
-- Encrypted nếu volume được mã hóa
-- Có thể copy qua các regions
-- Có thể chia sẻ với các accounts khác
-- Được lưu trữ trong S3
-
-## Networking
-
-### Security Groups
-
-**Đặc điểm:**
-
-- Stateful (return traffic được phép)
-- Instance level
-- Mặc định: Tất cả inbound bị từ chối, tất cả outbound được phép
-- Nhiều security groups mỗi instance
-
-**Rules:**
-
-- Inbound: Kiểm soát traffic đến instance
-- Outbound: Kiểm soát traffic từ instance
-- Source: IP, CIDR hoặc security group
-
-### Network Interfaces
-
-**ENI (Elastic Network Interface):**
-
-- Virtual network card
-- Nhiều ENIs mỗi instance (lên đến 8)
-- Elastic IPs được gắn vào ENI
-- Security groups được áp dụng ở cấp ENI
-
-### Enhanced Networking
-
-**Benefits:**
-
-- Bandwidth cao hơn (lên đến 100 Gbps)
-- Latency thấp hơn
-- PPS tốt hơn (packets mỗi giây)
-- Công nghệ SR-IOV
-
-## Placement Groups
-
-### Cluster Placement Group
-
-- Low latency (cùng rack)
-- High throughput (10 Gbps)
-- Chỉ một AZ
-- Sử dụng cho: HPC, tightly coupled workloads
-
-### Spread Placement Group
-
-- High availability (phần cứng khác nhau)
-- Lên đến 7 instances mỗi AZ
-- Nhiều AZs được hỗ trợ
-- Sử dụng cho: Critical applications
-
-### Partition Placement Group
-
-- Large scale (hàng trăm instances)
-- Lên đến 7 partitions mỗi AZ
-- Sử dụng cho: Distributed systems (Hadoop, Cassandra)
-
-## High Availability
-
-### Multi-AZ Deployment
-
-- Triển khai qua nhiều Availability Zones
-- Sử dụng Auto Scaling qua các AZs
-- Sử dụng load balancers qua các AZs
-- Thiết kế cho AZ failure
-
-### Auto Scaling
-
-**Components:**
-
-- Launch Template/Configuration
-- Auto Scaling Group
-- Scaling Policies
-- Health Checks
-
-**Scaling Policies:**
-
-- Target Tracking: Duy trì target metric
-- Step Scaling: Scale theo steps
-- Simple Scaling: Simple scale up/down
-
-## Security
-
-### IAM Roles
-
-- Sử dụng roles thay vì access keys
-- Temporary credentials
-- Automatic rotation
-- Gắn vào instances
-
-### Encryption
-
-**EBS Encryption:**
-
-- Mã hóa ở trạng thái nghỉ
-- Sử dụng KMS để quản lý keys
-- Encrypted snapshots
-- Không có impact về performance
-
-**Data in Transit:**
-
-- Sử dụng HTTPS/TLS
-- VPN cho remote access
-- Mã hóa trước khi truyền
-
-## Monitoring
-
-### CloudWatch Metrics
-
-**Key Metrics:**
-
-- `CPUUtilization`
-- `NetworkIn`, `NetworkOut`
-- `DiskReadOps`, `DiskWriteOps`
-- `StatusCheckFailed_System`
-- `StatusCheckFailed_Instance`
-
-### Status Checks
-
-**System Status:**
-
-- Vấn đề physical host
-- Stop và start để di chuyển sang host mới
-
-**Instance Status:**
-
-- Vấn đề software/network
-- Troubleshoot application/configuration
-
-## Tối ưu hóa Chi phí
-
-### Chiến lược
-
-1. **Right-Size**: Khớp instance type với workload
-2. **Reserved Instances**: Cho predictable workloads
-3. **Spot Instances**: Cho fault-tolerant workloads
-4. **Auto Scaling**: Scale dựa trên demand
-5. **Stop Unused**: Dừng instances khi không cần
-6. **Delete Unused**: Xóa unused resources
-
-### Giám sát Chi phí
-
-- Cost Explorer: Phân tích chi phí
-- AWS Budgets: Budget alerts
-- Cost Allocation Tags: Theo dõi chi phí
-- Reserved Instance Recommendations
-
-## Mẹo Thi
-
-### Các Chủ đề Thường gặp
-
-1. **Instance Types**: Biết families và use cases
-2. **Pricing Models**: Khi nào sử dụng mỗi model
-3. **Storage**: Các loại EBS và đặc điểm
-4. **Security Groups**: Stateful, rules, best practices
-5. **Placement Groups**: Các loại và use cases
-6. **Auto Scaling**: Components và policies
-7. **High Availability**: Multi-AZ, health checks
-8. **Cost Optimization**: Chiến lược và tools
-
-### Nhắc nhở Quan trọng
-
-- **T2/T3**: Burstable, CPU credits
-- **EBS**: Persistent, network-attached
-- **Instance Store**: Ephemeral, local
-- **Security Groups**: Stateful, instance level
-- **Reserved Instances**: Tiết kiệm lên đến 72% (3 năm)
-- **Spot Instances**: Tiết kiệm lên đến 90%, có thể bị gián đoạn
-- **Multi-AZ**: Cho high availability
-- **Auto Scaling**: Cho cost và availability
-
-### Câu hỏi Dựa trên Kịch bản
-
-**Các Kịch bản Thường gặp:**
-
-- Chọn instance type cho workload
-- Tối ưu hóa chi phí
-- Yêu cầu high availability
-- Vấn đề performance
-- Yêu cầu security
-
-**Cách tiếp cận:**
-
-- Đọc kịch bản cẩn thận
-- Xác định requirements
-- Cân nhắc cost, performance, availability
-- Chọn option tốt nhất
-
-## Tài liệu liên quan
-
-- [EC2 Basics](./basics.md) - Bắt đầu với EC2
-- [EC2 Instance Types](./instance-types.md) - Instance types
-- [EC2 Best Practices](./best-practices.md) - Best practices
-- [AWS Certification Exam Guides](../../../07-exam/index.md) - Chuẩn bị thi
+## Tóm tắt
+
+- EC2 xuất hiện trong hầu hết các kỳ thi AWS (SAA, DVA, SOA, SAP); các chủ đề trọng tâm gồm **instance types & pricing models, storage, networking/security, high availability, cost optimization**.
+- Câu hỏi thường là **tình huống thực tế** (scenario‑based), yêu cầu chọn giải pháp tốt nhất theo **Well‑Architected**: secure, reliable, performant, cost‑efficient.
+- Ghi nhớ **các pattern mặc định** của AWS (IAM Role, Security Group, Multi‑AZ, Auto Scaling, EBS encrypted, Spot cho batch…) giúp loại bỏ nhanh các đáp án sai.
+
+## Sơ đồ mindmap EC2 cho exam
+
+```mermaid
+mindmap
+  root((EC2 Exam Topics))
+    Instance Types
+      Families & use cases
+      Naming convention
+      Burstable (T3/T4g)
+    Pricing
+      On-Demand
+      Reserved / Savings Plans
+      Spot
+    Storage
+      EBS volume types
+      Instance store
+      Snapshots
+    Networking & Security
+      Security Groups
+      ENI & Elastic IP
+      Placement Groups
+    HA & Scaling
+      Multi-AZ
+      Auto Scaling
+      Health checks
+    Cost Optimization
+      Right-size
+      Stop/terminate unused
+      Cost tools
+```
+
+## Exam Notes theo chủ đề
+
+- **Instance Types & Naming**
+
+  - Families: **M/T (General Purpose)**, **C (Compute Optimized)**, **R/X/High Memory (Memory Optimized)**, **I/D/H (Storage Optimized)**, **P/G/Inf/Trn (Accelerated)**.
+  - Pattern: `[family][generation].[size]` – ví dụ `m6i.large`, `c7g.xlarge`.
+  - **T2/T3/T4g** là burstable, dùng CPU credits; current generation (M6/M7, C6/C7, R6/R7) thường là đáp án tốt hơn M4/C4/R4.
+
+- **Pricing Models**
+
+  - **On‑Demand**: linh hoạt, không cam kết, chi phí cao nhất; dùng cho workloads ngắn hạn, không dự đoán được.
+  - **Reserved Instances / Savings Plans**: tiết kiệm tới ~72% cho workloads ổn định, lâu dài (1–3 năm); thường là câu trả lời cho “predictable steady‑state”.
+  - **Spot Instances**: giảm giá tới ~90%, có thể bị gián đoạn (2‑minute warning), dùng cho batch/CI/CD/ML training/fault‑tolerant.
+
+- **Storage**
+
+  - **EBS**: persistent, network‑attached; volume types:
+    - `gp3` (default, general purpose), `io1/io2` (provisioned IOPS cho DB), `st1` (throughput HDD), `sc1` (cold HDD).
+  - **Instance store**: local, ephemeral – mất dữ liệu khi stop/terminate; dùng cho cache/scratch, không cho dữ liệu quan trọng.
+  - **Snapshots**: incremental, lưu trong S3 (ẩn), có thể copy cross‑Region và share; encrypted nếu volume gốc encrypted.
+
+- **Networking & Security**
+
+  - **Security Groups**: stateful, instance‑level; mặc định deny all inbound, allow all outbound; cho phép rules theo IP/CIDR hoặc SG khác.
+  - **ENI**: Elastic Network Interface – virtual NIC với private IPs, Elastic IP, Security Group; mỗi instance có 1 primary ENI và có thể có nhiều ENI phụ.
+  - **Placement Groups**:
+    - Cluster: low latency, high throughput trong 1 AZ (HPC, tightly coupled).
+    - Spread: high availability, max isolation (≤7 instances/AZ).
+    - Partition: distributed systems lớn (Hadoop, Cassandra).
+
+- **High Availability & Scaling**
+
+  - **Multi‑AZ**: triển khai EC2 trong nhiều AZ + Auto Scaling Group + load balancer để tăng availability.
+  - **Auto Scaling**: gồm Launch Template/Configuration, Auto Scaling Group, scaling policies (Target Tracking, Step, Simple), health checks.
+  - **Status checks**:
+    - System status: vấn đề host; fix bằng stop/start.
+    - Instance status: vấn đề bên trong instance; cần troubleshooting cấu hình/application.
+
+- **Cost Optimization**
+  - Chiến lược điển hình: **right‑size → Reserved/Savings Plans cho steady‑state → Spot cho batch/fault‑tolerant → Auto Scaling → dừng/terminate resources không dùng**.
+  - Theo dõi chi phí với **Cost Explorer, AWS Budgets, Cost Allocation Tags**, dùng anomaly detection để phát hiện spikes bất thường.
+
+## Mẹo làm bài thi
+
+- **Đọc kỹ scenario**: gạch chân các từ khoá như _steep increase in traffic, stringent compliance, unpredictable workload, require high availability, lowest cost option, fault‑tolerant_.
+- **Ưu tiên giải pháp “managed” và “AWS recommended”**: IAM Role hơn access key, SG hơn open NACL, Multi‑AZ/ASG hơn single instance, EBS encrypted hơn unencrypted.
+- **Loại trừ đáp án sai** dựa trên: vi phạm security best practices (public SSH từ mọi nơi, hard‑code credentials), không HA (single AZ, single instance), hoặc over‑engineering/costly rõ ràng.
+- Luôn cân bằng **chi phí – hiệu suất – availability**: câu trả lời đúng thường là điểm giao thoa, không chỉ tối đa một yếu tố.
+
+## Tài liệu AWS tham khảo
+
+- [Amazon EC2 User Guide](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html)
+- [Amazon EC2 instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html)
+- [Pricing for Amazon EC2](https://aws.amazon.com/ec2/pricing/)
+
+## Tài liệu liên quan trong Hub
+
+- [EC2 Basics](./basics.md)
+- [EC2 Instance Types](./instance-types.md)
+- [EC2 Best Practices](./best-practices.md)
+- [EC2 Cost Optimization](./cost-optimization.md)
+- [AWS Certification Exam Guides](../../../07-exam/index.md)

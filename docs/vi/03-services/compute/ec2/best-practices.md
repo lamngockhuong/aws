@@ -1,394 +1,85 @@
 # Best Practices EC2
 
-Tuân theo best practices giúp đảm bảo các EC2 instances của bạn an toàn, hiệu suất cao, tiết kiệm chi phí và đáng tin cậy. Hướng dẫn này bao gồm các best practices vận hành và kiến trúc cho EC2.
-
-## Security Best Practices
-
-### IAM Roles
-
-**Sử dụng IAM Roles Thay vì Access Keys:**
-
-- **No Credentials on Instances**: Roles cung cấp temporary credentials
-- **Automatic Rotation**: Credentials được rotate tự động
-- **Least Privilege**: Cấp các permissions tối thiểu cần thiết
-- **Audit Trail**: Tất cả access được ghi log trong CloudTrail
-
-**Implementation:**
-
-- Tạo IAM role với các permissions cần thiết
-- Gắn role vào instance khi khởi chạy hoặc sau đó
-- Applications sử dụng instance metadata service
-- Không lưu trữ access keys trên instances
-
-### Security Groups
-
-**Nguyên tắc Least Privilege:**
-
-- Chỉ cho phép các ports và protocols cần thiết
-- Hạn chế source IPs khi có thể
-- Sử dụng security groups làm sources
-- Document các rules của security group
-
-**Best Practices:**
-
-- Tách security groups theo chức năng (web, app, DB)
-- Sử dụng tên và mô tả rõ ràng
-- Security reviews định kỳ
-- Xóa các security group rules không sử dụng
-
-### Network Security
-
-**VPC Best Practices:**
-
-- Sử dụng private subnets cho application và database tiers
-- Chỉ sử dụng public subnets cho load balancers và NAT
-- Triển khai network ACLs cho lớp bổ sung
-- Bật VPC Flow Logs để giám sát
-
-**Network Isolation:**
-
-- Tách các environments (dev, staging, prod)
-- Sử dụng các VPCs hoặc subnets khác nhau
-- Triển khai routing phù hợp
-- Sử dụng VPC endpoints cho AWS services
-
-### Encryption
-
-**Data at Rest:**
-
-- Bật EBS volume encryption
-- Sử dụng KMS để quản lý keys
-- Mã hóa instance store data (nếu lưu trữ dữ liệu nhạy cảm)
-- Mã hóa snapshots
-
-**Data in Transit:**
-
-- Sử dụng HTTPS/TLS cho tất cả communications
-- Sử dụng VPN cho remote access
-- Mã hóa dữ liệu trước khi truyền
-- Sử dụng các protocols an toàn
-
-### Patch Management
-
-**Regular Updates:**
-
-- Giữ operating systems được cập nhật
-- Áp dụng security patches kịp thời
-- Sử dụng Systems Manager Patch Manager
-- Test patches trong non-production trước
-
-**Automation:**
-
-- Sử dụng Systems Manager cho automated patching
-- Lên lịch maintenance windows
-- Giám sát patch compliance
-- Document các quy trình patch
-
-## Performance Best Practices
-
-### Instance Selection
-
-**Right-Sizing:**
-
-- Khớp instance type với yêu cầu workload
-- Giám sát CloudWatch metrics
-- Sử dụng current generation instances
-- Cân nhắc burstable instances cho variable workloads
-
-**Instance Types:**
-
-- Sử dụng general purpose (M) cho balanced workloads
-- Sử dụng compute optimized (C) cho CPU-intensive
-- Sử dụng memory optimized (R) cho memory-intensive
-- Sử dụng storage optimized (I, D) cho I/O-intensive
-
-### Enhanced Networking
-
-**Enable Enhanced Networking:**
-
-- Network performance tốt hơn
-- Latency thấp hơn
-- Bandwidth cao hơn
-- Yêu cầu cho một số instance types
-
-**Implementation:**
-
-- Sử dụng current generation instances
-- Bật khi khởi chạy instance
-- Xác minh sau khi khởi chạy
-- Giám sát network performance
-
-### Storage Optimization
-
-**EBS Volume Selection:**
-
-- Sử dụng gp3 cho hầu hết workloads
-- Sử dụng io1/io2 cho yêu cầu IOPS cao
-- Sử dụng st1/sc1 cho sequential workloads
-- Right-size volumes
-
-**Instance Store:**
-
-- Sử dụng cho temporary data và cache
-- Không lưu trữ critical data
-- Backup dữ liệu quan trọng sang EBS hoặc S3
-- Hiểu data lifecycle
-
-### Monitoring
-
-**CloudWatch Metrics:**
-
-- Giám sát CPU, memory, disk, network
-- Thiết lập alarms cho thresholds
-- Theo dõi performance trends
-- Sử dụng custom metrics cho applications
-
-**Logging:**
-
-- Bật CloudWatch Logs
-- Tập trung log collection
-- Triển khai log retention policies
-- Giám sát errors và anomalies
-
-## Cost Optimization
-
-### Instance Purchasing
-
-**On-Demand Instances:**
-
-- Thanh toán theo giờ/giây
-- Không có cam kết trước
-- Sử dụng cho: Variable workloads, testing
-
-**Reserved Instances:**
-
-- Kỳ hạn 1 năm hoặc 3 năm
-- Tiết kiệm lên đến 72%
-- Sử dụng cho: Predictable workloads
-
-**Spot Instances:**
-
-- Tiết kiệm lên đến 90%
-- Có thể bị gián đoạn
-- Sử dụng cho: Fault-tolerant workloads
-
-**Savings Plans:**
-
-- Mô hình giá cả linh hoạt
-- Tiết kiệm lên đến 72%
-- Áp dụng trên các instance families
-
-### Right-Sizing
-
-**Monitor Utilization:**
-
-- Theo dõi CPU, memory, network usage
-- Xác định các instances over-provisioned
-- Xác định các instances under-utilized
-- Sử dụng CloudWatch metrics
-
-**Optimization:**
-
-- Downsize các instances over-provisioned
-- Consolidate các instances under-utilized
-- Sử dụng Auto Scaling cho variable workloads
-- Reviews định kỳ
-
-### Auto Scaling
-
-**Benefits:**
-
-- Scale up trong thời gian nhu cầu cao
-- Scale down trong thời gian nhu cầu thấp
-- Tối ưu hóa chi phí
-- High availability
-
-**Implementation:**
-
-- Tạo launch templates
-- Cấu hình scaling policies
-- Thiết lập health checks
-- Giám sát scaling activities
-
-### Lifecycle Management
-
-**Stop Unused Instances:**
-
-- Dừng instances khi không cần
-- Không trả tiền cho stopped instances (EBS vẫn bị tính phí)
-- Sử dụng scheduling cho các patterns có thể dự đoán được
-- Tự động hóa với Lambda
-
-## High Availability
-
-### Multi-AZ Deployment
-
-**Distribution:**
-
-- Triển khai instances qua nhiều AZs
-- Sử dụng Auto Scaling qua các AZs
-- Sử dụng load balancers qua các AZs
-- Thiết kế cho AZ failure
-
-**Benefits:**
-
-- Availability cao hơn
-- Giảm rủi ro correlated failures
-- Disaster recovery tốt hơn
-- Cải thiện performance (gần người dùng hơn)
-
-### Health Checks
-
-**Instance Health:**
-
-- Giám sát system status checks
-- Giám sát instance status checks
-- Thiết lập CloudWatch alarms
-- Tự động hóa recovery
-
-**Application Health:**
-
-- Triển khai application health checks
-- Sử dụng load balancer health checks
-- Giám sát application metrics
-- Thiết lập automated remediation
-
-### Backup and Recovery
-
-**EBS Snapshots:**
-
-- Regular automated snapshots
-- Test restore procedures
-- Cross-region snapshot copies
-- Long-term retention
-
-**AMI Management:**
-
-- Tạo AMIs cho golden images
-- Version control AMIs
-- Test AMI launches
-- Document nội dung AMI
-
-## Operational Excellence
-
-### Tagging
-
-**Consistent Tagging:**
-
-- Sử dụng chiến lược tagging nhất quán
-- Tag cho cost allocation
-- Tag cho automation
-- Tag cho compliance
-
-**Common Tags:**
-
-- Name, Environment, Project
-- Owner, Team, Cost Center
-- Application, Service
-- Compliance, Backup
-
-### Automation
-
-**Infrastructure as Code:**
-
-- Sử dụng CloudFormation hoặc Terraform
-- Version control infrastructure
-- Automated deployments
-- Quy trình có thể lặp lại
-
-**Configuration Management:**
-
-- Sử dụng Systems Manager
-- Sử dụng user data scripts
-- Sử dụng configuration management tools
-- Document configurations
-
-### Documentation
-
-**Instance Documentation:**
-
-- Document mục đích instance
-- Document configurations
-- Document dependencies
-- Document runbooks
-
-**Procedures:**
-
-- Document launch procedures
-- Document troubleshooting steps
-- Document recovery procedures
-- Giữ documentation được cập nhật
-
-## Monitoring and Alerting
-
-### CloudWatch Setup
-
-**Metrics:**
-
-- Bật detailed monitoring
-- Tạo custom metrics
-- Thiết lập dashboards
-- Cấu hình alarms
-
-**Logs:**
-
-- Bật CloudWatch Logs
-- Tập trung log collection
-- Thiết lập log retention
-- Giám sát errors
-
-### Alerting
-
-**Critical Alarms:**
-
-- Instance status check failures
-- High CPU/memory usage
-- Disk space issues
-- Network problems
-
-**Alerting Best Practices:**
-
-- Đặt thresholds phù hợp
-- Tránh alert fatigue
-- Route đến các channels phù hợp
-- Test alerting
-
-## Disaster Recovery
-
-### Backup Strategy
-
-**EBS Snapshots:**
-
-- Regular automated snapshots
-- Point-in-time recovery
-- Cross-region copies
-- Test restore procedures
-
-**AMI Backups:**
-
-- Tạo AMIs định kỳ
-- Lưu trữ trong nhiều regions
-- Version control
-- Test AMI launches
-
-### Recovery Procedures
-
-**Documentation:**
-
-- Document recovery procedures
-- Test recovery định kỳ
-- Cập nhật procedures
-- Đào tạo team members
-
-**Automation:**
-
-- Tự động hóa recovery khi có thể
-- Sử dụng Systems Manager
-- Sử dụng Lambda functions
-- Test automation
-
-## Tài liệu liên quan
-
-- [EC2 Basics](./basics.md) - Bắt đầu với EC2
-- [EC2 Cost Optimization](./cost-optimization.md) - Tối ưu hóa chi phí
-- [EC2 Troubleshooting](./troubleshooting.md) - Hướng dẫn troubleshooting
+## Tóm tắt
+
+- Best practices EC2 tập trung vào **bảo mật**, **hiệu suất**, **chi phí**, **high availability** và **vận hành/monitoring**, giúp môi trường EC2 an toàn và dễ quản lý.
+- Cốt lõi là: dùng **IAM Role** thay vì access key, thiết kế **VPC + Security Group** đúng, **right‑size instances**, dùng **Auto Scaling + Multi‑AZ**, và tự động hóa backup/patching.
+- Một chiến lược tốt luôn đi kèm **tagging, logging/monitoring đầy đủ**, và quy trình DR đã được kiểm thử.
+
+## Sơ đồ mindmap best practices EC2
+
+```mermaid
+mindmap
+  root((EC2 Best Practices))
+    Security
+      IAM Roles
+      Security Groups & NACLs
+      Encryption
+      Patch Management
+    Performance
+      Right-size instances
+      Enhanced Networking
+      Storage optimization
+    Cost
+      On-Demand / Reserved / Spot / Savings Plans
+      Auto Scaling
+      Lifecycle management
+    High Availability
+      Multi-AZ
+      Health checks
+      Backup & AMIs
+    Operations
+      Tagging
+      Monitoring & Alerting
+      Automation (IaC, SSM)
+```
+
+## Best Practices (tổng hợp)
+
+- **Security**
+
+  - Dùng **IAM Role** cho EC2 để lấy temporary credentials, không dùng access key static trên instance.
+  - Thiết kế **Security Groups** theo nguyên tắc least privilege, tách theo chức năng (web/app/db), review định kỳ và bật VPC Flow Logs cho phân tích.
+  - Bật **EBS encryption** (KMS), mã hóa snapshots và dùng TLS cho mọi traffic nhạy cảm.
+  - Tự động hoá **patching** với Systems Manager (Patch Manager), có maintenance window và test trước trên non‑prod.
+
+- **Performance**
+
+  - **Right‑size** và ưu tiên current generation (M6/M7, C6/C7, R6/R7…) cho hiệu năng tốt hơn.
+  - Bật **enhanced networking** (ENA/EFA) cho workloads network‑intensive; chọn placement group phù hợp nếu cần low‑latency.
+  - Chọn **EBS volume type** đúng (gp3, io1/io2, st1, sc1) và dùng instance store cho cache/scratch, không lưu critical data.
+
+- **Cost Optimization**
+
+  - Kết hợp **On‑Demand + Reserved Instances/Savings Plans + Spot** theo profile workload (predictable vs batch vs thử nghiệm).
+  - Dùng **Auto Scaling** để scale up/down theo tải, tránh over‑provisioning cố định.
+  - Quản lý vòng đời: dừng/terminate instances không dùng, xoá EBS volumes unattached và snapshots cũ; dùng tags (Environment/Owner/Project/CostCenter).
+
+- **High Availability & DR**
+
+  - Triển khai **Multi‑AZ** (ASG + load balancer) cho web/app tier; dùng RDS Multi‑AZ hoặc cơ chế tương đương cho database.
+  - Thiết lập **health checks** (system + instance + application) và tự động thay thế instances unhealthy qua Auto Scaling/ELB.
+  - Tự động hóa **EBS snapshots, AMI “golden image”**, test restore định kỳ và lưu snapshot quan trọng cross‑Region nếu cần.
+
+- **Operations & Monitoring**
+  - Thiết lập **CloudWatch metrics, logs, dashboards, alarms** cho CPU, status checks, disk, network, app‑level metrics.
+  - Dùng **Infrastructure as Code** (CloudFormation/Terraform) cho tất cả cấu hình, và Systems Manager cho cấu hình/automation.
+  - Chuẩn hoá **tagging** và tài liệu (runbook, troubleshooting guide, recovery procedures).
+
+## Exam Notes
+
+- Câu hỏi best practices EC2 thường yêu cầu bạn **chọn giải pháp an toàn và được AWS khuyến nghị**, ví dụ: IAM Role + Security Group + Multi‑AZ + Auto Scaling + EBS encrypted.
+- Nhớ: **Security Groups là stateful**, Network ACLs là stateless; use case và thứ tự áp dụng là điểm hay bị hỏi.
+- **Cost optimization** trong đề thi thường gắn với: dùng Reserved/Savings Plans cho workloads ổn định, Spot cho batch/fault‑tolerant, và right‑sizing dựa trên CloudWatch metrics.
+- **High Availability**: Multi‑AZ, health checks, ASG, load balancer; single instance trong một AZ hiếm khi là câu trả lời đúng cho production.
+
+## Tài liệu AWS tham khảo
+
+- [Security in Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-security.html)
+- [Amazon EC2 best practices](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-best-practices.html)
+
+## Tài liệu liên quan trong Hub
+
+- [EC2 Basics](./basics.md)
+- [EC2 Cost Optimization](./cost-optimization.md)
+- [EC2 Troubleshooting](./troubleshooting.md)

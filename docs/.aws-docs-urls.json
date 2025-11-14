@@ -323,10 +323,12 @@
     }
   },
   "general": {
-    "globalInfrastructure": "https://docs.aws.amazon.com/general/latest/gr/aws-general-information.html",
+    "overview": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/introduction.html",
+    "globalInfrastructure": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/global-infrastructure.html",
     "pricing": "https://aws.amazon.com/pricing/",
     "wellArchitected": "https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html",
-    "securityBestPractices": "https://docs.aws.amazon.com/security/index.html"
+    "securityBestPractices": "https://docs.aws.amazon.com/security/",
+    "glossary": "https://docs.aws.amazon.com/glossary/latest/reference/glos-chap.html"
   }
 }
 
