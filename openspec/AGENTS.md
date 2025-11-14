@@ -532,28 +532,40 @@ Remember: Specs are truth. Changes are proposals. Keep them in sync.
    - `mcp_awslabs_aws-documentation-mcp-server_read_documentation` - Read AWS documentation pages
    - `mcp_awslabs_aws-documentation-mcp-server_recommend` - Discover related documentation
 
-3. **Content creation guidelines** (for `docs/vi/`):
+3. **Content creation guidelines** (especially for `docs/vi/`):
 
-   - **DO NOT translate everything** - SUMMARIZE key concepts (3-5 main points)
+   - **DO NOT translate everything** - SUMMARIZE key concepts (3–5 main points)
    - **Create Mermaid diagrams** to illustrate concepts (architecture/flowchart/mindmap/sequence)
-   - **Add Best Practices section** with 5-7 actionable tips
+   - **Add Best Practices section** with 5–7 actionable tips
    - **Keep AWS service names, API names, CLI flags, code blocks UNCHANGED**
    - **Use professional, concise tone** (match AWS docs style)
    - **Reference `docs-workflow/glossary.md`** for terminology consistency
 
-4. **Output format for each section**:
+4. **Output format (base layout for each page)**:
 
-   - Summary (2-3 sentences per concept)
+   - Summary (2–3 sentences per concept)
    - Mermaid diagram with title
    - Best Practices (bullet points with brief explanations)
-   - Exam Notes (if applicable, 3-5 bullets)
+   - Exam Notes (if applicable, 3–5 bullets)
+   - AWS documentation links
+   - Related docs in this Hub
 
-5. **Reference files**:
+5. **Content-type templates**:
+
+   - For fundamentals & exam docs (`01-introduction/`, `02-fundamentals/`, `07-exam/`): prefer adding learning-outcome + exam-domain mapping, “Value in practice vs exam”, rapid self-assessment, and “Bridging resources” sections where helpful.
+   - For service deep-dives (`03-services/**`): add “Service at a Glance” (when to use / when not to use), reference architectures, an “Operations & Cost” lens, hands-on hooks (labs/CLI), and certification-focused Exam Notes.
+   - For labs & playbooks (`05-labs/`, `06-real-world/`): use metadata blocks (Level, Role fit, Services, Time, Cost warning), explicit prerequisites/clean-up, grouped steps (Plan/Build/Verify/Optimize/Tear Down), validation + troubleshooting, and reflection + exam mapping.
+   - For glossary/cheatsheets (`08-glossary/`, `docs-workflow/`): use pattern cards (Definition, When to use, Service links, FAQ exam).
+
+   See `docs-workflow/README.md` for concrete examples and phrasing.
+
+6. **Reference files**:
 
    - `docs-workflow/glossary.md` - For terminology consistency
    - `docs-workflow/diagram-templates.md` - For Mermaid diagram examples
+   - `docs-workflow/README.md` - For content-type templates and examples
 
-6. **AI agent instructions**:
+7. **AI agent instructions**:
 
    - `.cursorrules` - Cursor instructions (auto-loaded)
    - `.github/copilot-instructions.md` - GitHub Copilot instructions (auto-loaded)
