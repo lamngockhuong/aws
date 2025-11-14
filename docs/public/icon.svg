@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="256" height="256">
+  <defs>
+    <linearGradient id="cloudGrad" gradientUnits="userSpaceOnUse" x1="4" y1="8" x2="60" y2="52">
+      <stop offset="0%" stop-color="#FF9900" />
+      <stop offset="100%" stop-color="#E8850E" />
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+    <!-- Softening filter for gentle text rendering -->
+    <filter id="softText">
+      <feGaussianBlur stdDeviation="0.05"/>
+    </filter>
+    <!-- Document with folded corner -->
+    <symbol id="documentMark" viewBox="0 0 64 64">
+      <g stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none">
+        <rect x="20" y="18" width="24" height="28" rx="1"/>
+        <path d="M 38 18 L 38 26 L 44 26"/>
+        <line x1="24" y1="26" x2="36" y2="26"/>
+        <line x1="24" y1="30" x2="40" y2="30"/>
+        <line x1="24" y1="34" x2="36" y2="34"/>
+      </g>
+    </symbol>
+    <!-- Clipboard -->
+    <symbol id="clipboardMark" viewBox="0 0 64 64">
+      <g stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none">
+        <rect x="18" y="16" width="28" height="32" rx="2"/>
+        <path d="M 24 16 L 24 12 C 24 10, 26 8, 28 8 L 36 8 C 38 8, 40 10, 40 12 L 40 16"/>
+        <line x1="24" y1="24" x2="40" y2="24"/>
+        <line x1="24" y1="30" x2="40" y2="30"/>
+        <line x1="24" y1="36" x2="36" y2="36"/>
+      </g>
+    </symbol>
+    <!-- Book/Notebook -->
+    <symbol id="bookMark" viewBox="0 0 64 64">
+      <g stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none">
+        <path d="M 20 18 L 20 46 L 44 46 L 44 18 C 44 16, 42 14, 40 14 L 24 14 C 22 14, 20 16, 20 18 Z"/>
+        <line x1="32" y1="14" x2="32" y2="46"/>
+        <line x1="24" y1="24" x2="32" y2="24"/>
+        <line x1="24" y1="30" x2="32" y2="30"/>
+        <line x1="24" y1="36" x2="32" y2="36"/>
+      </g>
+    </symbol>
+    <!-- Page with curl -->
+    <symbol id="pageCurlMark" viewBox="0 0 64 64">
+      <g stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none">
+        <path d="M 20 18 L 20 46 L 44 46 L 44 18 L 20 18 Z"/>
+        <path d="M 38 18 Q 42 20, 44 24 L 38 24 Z" fill="white" opacity="0.3"/>
+        <line x1="24" y1="26" x2="36" y2="26"/>
+        <line x1="24" y1="32" x2="40" y2="32"/>
+        <line x1="24" y1="38" x2="36" y2="38"/>
+      </g>
+    </symbol>
+    <!-- Stack of papers -->
+    <symbol id="stackMark" viewBox="0 0 64 64">
+      <g stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none">
+        <rect x="20" y="20" width="24" height="28" rx="1"/>
+        <rect x="22" y="18" width="24" height="28" rx="1" opacity="0.7"/>
+        <rect x="24" y="16" width="24" height="28" rx="1" opacity="0.5"/>
+        <line x1="26" y1="24" x2="38" y2="24"/>
+        <line x1="26" y1="30" x2="42" y2="30"/>
+      </g>
+    </symbol>
+    <!-- Bookmark -->
+    <symbol id="bookmarkMark" viewBox="0 0 64 64">
+      <g stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none">
+        <path d="M 24 18 L 24 42 L 32 36 L 40 42 L 40 18 L 24 18 Z"/>
+      </g>
+    </symbol>
+    <!-- Notebook -->
+    <symbol id="notebookMark" viewBox="0 0 64 64">
+      <g stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none">
+        <rect x="18" y="16" width="28" height="32" rx="1"/>
+        <line x1="28" y1="16" x2="28" y2="48"/>
+        <line x1="24" y1="24" x2="40" y2="24"/>
+        <line x1="24" y1="30" x2="40" y2="30"/>
+        <line x1="24" y1="36" x2="40" y2="36"/>
+        <line x1="24" y1="42" x2="36" y2="42"/>
+      </g>
+    </symbol>
+    <!-- Clip path to keep watermark inside the cloud -->
+    <clipPath id="cloudClip">
+      <path d="M18 42c-5.5 0-10-4.3-10-9.6 0-4.1 2.7-7.6 6.3-8.9 1.1-6.9 7.1-12.2 14.4-12.2 6.1 0 11.3 3.3 13.7 8.2 0.6-0.1 1.2-0.1 1.8-0.1 6 0 10.9 4.7 10.9 10.4 0 0.5 0 0.9-0.1 1.4 3.5 1.2 6 4.5 6 8.4 0 4.9-4.1 8.9-9.2 8.9H22.5C20.5 48.5 18 45.6 18 42z" transform="translate(-2,0) translate(32,32) scale(1.18) translate(-32,-32)"/>
+    </clipPath>
+  </defs>
+
+  <!-- Unified AWS cloud shape -->
+  <path
+    d="M18 42c-5.5 0-10-4.3-10-9.6 0-4.1 2.7-7.6 6.3-8.9 1.1-6.9 7.1-12.2 14.4-12.2 6.1 0 11.3 3.3 13.7 8.2 0.6-0.1 1.2-0.1 1.8-0.1 6 0 10.9 4.7 10.9 10.4 0 0.5 0 0.9-0.1 1.4 3.5 1.2 6 4.5 6 8.4 0 4.9-4.1 8.9-9.2 8.9H22.5C20.5 48.5 18 45.6 18 42z"
+    fill="url(#cloudGrad)"
+    filter="url(#shadow)"
+    transform="translate(-3,0) translate(32,32) scale(1.18) translate(-32,-32)"
+  />
+
+  <!-- Watermark documentation icons scattered inside cloud with natural arrangement -->
+  <g clip-path="url(#cloudClip)" opacity="0.1">
+    <!-- Top area - smaller, more scattered -->
+    <use href="#documentMark" transform="translate(12,10) rotate(-8) scale(0.18)"/>
+    <use href="#clipboardMark" transform="translate(20,8) rotate(12) scale(0.16)"/>
+    <use href="#pageCurlMark" transform="translate(28,11) rotate(-5) scale(0.19)"/>
+    <use href="#bookMark" transform="translate(36,9) rotate(15) scale(0.17)"/>
+    <use href="#stackMark" transform="translate(44,12) rotate(-10) scale(0.18)"/>
+    <use href="#bookmarkMark" transform="translate(52,10) rotate(8) scale(0.16)"/>
+
+    <!-- Upper middle - medium size, varied rotation -->
+    <use href="#notebookMark" transform="translate(10,18) rotate(5) scale(0.2)"/>
+    <use href="#documentMark" transform="translate(18,20) rotate(-12) scale(0.21)"/>
+    <use href="#clipboardMark" transform="translate(26,17) rotate(18) scale(0.19)"/>
+    <use href="#bookMark" transform="translate(34,19) rotate(-7) scale(0.2)"/>
+    <use href="#pageCurlMark" transform="translate(42,21) rotate(10) scale(0.21)"/>
+    <use href="#stackMark" transform="translate(50,18) rotate(-15) scale(0.19)"/>
+
+    <!-- Center area - larger, more prominent -->
+    <use href="#documentMark" transform="translate(14,26) rotate(-10) scale(0.22)"/>
+    <use href="#bookMark" transform="translate(22,28) rotate(12) scale(0.23)"/>
+    <use href="#clipboardMark" transform="translate(30,25) rotate(-5) scale(0.21)"/>
+    <use href="#notebookMark" transform="translate(38,27) rotate(8) scale(0.22)"/>
+    <use href="#stackMark" transform="translate(46,29) rotate(-12) scale(0.23)"/>
+
+    <!-- Lower middle - medium size -->
+    <use href="#pageCurlMark" transform="translate(16,34) rotate(15) scale(0.2)"/>
+    <use href="#bookMark" transform="translate(24,36) rotate(-8) scale(0.21)"/>
+    <use href="#documentMark" transform="translate(32,33) rotate(10) scale(0.2)"/>
+    <use href="#clipboardMark" transform="translate(40,35) rotate(-12) scale(0.21)"/>
+    <use href="#notebookMark" transform="translate(48,37) rotate(7) scale(0.2)"/>
+
+    <!-- Bottom area - smaller, scattered -->
+    <use href="#bookmarkMark" transform="translate(18,42) rotate(-5) scale(0.19)"/>
+    <use href="#stackMark" transform="translate(26,44) rotate(12) scale(0.18)"/>
+    <use href="#pageCurlMark" transform="translate(34,41) rotate(-10) scale(0.19)"/>
+    <use href="#bookMark" transform="translate(42,43) rotate(8) scale(0.18)"/>
+
+    <!-- Side accents for depth -->
+    <use href="#clipboardMark" transform="translate(8,24) rotate(-18) scale(0.16)"/>
+    <use href="#bookmarkMark" transform="translate(56,22) rotate(20) scale(0.17)"/>
+    <use href="#notebookMark" transform="translate(6,38) rotate(15) scale(0.15)"/>
+    <use href="#pageCurlMark" transform="translate(58,40) rotate(-15) scale(0.16)"/>
+  </g>
+
+  <!-- AWS label -->
+  <text x="32" y="32" text-anchor="middle" dominant-baseline="middle" font-size="18" font-weight="700" fill="white" opacity="0.95">AWS</text>
+
+  <!-- Copyright signature -->
+  <text x="55" y="47.5" text-anchor="end" font-size="8" font-weight="500" font-style="italic" fill="white" opacity="0.5" filter="url(#softText)">@lnk</text>
+</svg>

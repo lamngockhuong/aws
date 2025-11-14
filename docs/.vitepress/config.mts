@@ -462,11 +462,10 @@ const vietnameseSidebar: DefaultTheme.Sidebar = [
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "AWS Knowledge Hub",
-  description: "Structured AWS learning from fundamentals to production playbooks.",
+  description:
+    "Structured AWS learning from fundamentals to production playbooks.",
   lastUpdated: true,
-  ignoreDeadLinks: [
-    /^https?:\/\/localhost/,
-  ],
+  ignoreDeadLinks: [/^https?:\/\/localhost/],
   markdown: {
     // Enable checkbox rendering: - [ ] and - [x]
     // This allows markdown lists with checkboxes to render as interactive checkboxes
@@ -474,7 +473,7 @@ export default defineConfig({
     config: (md) => {
       // Enable task lists (checkboxes) using markdown-it-task-lists plugin
       // Syntax: - [ ] unchecked, - [x] checked
-      md.use(taskLists)
+      md.use(taskLists);
     },
   },
   vite: {
@@ -522,8 +521,14 @@ export default defineConfig({
   },
   head: [
     // Favicon configurations
-    ["link", { rel: "shortcut icon", href: "/favicon.ico", sizes: "48x48" }],
-    ["link", { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" }],
+    [
+      "link",
+      { rel: "shortcut icon", href: "/favicon.ico", sizes: "48x48" },
+    ],
+    [
+      "link",
+      { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
+    ],
     [
       "link",
       {
@@ -576,7 +581,7 @@ export default defineConfig({
     },
   },
   themeConfig: {
-    logo: "/logo.svg",
+    logo: "/icon.svg",
     socialLinks: [
       {
         icon: "github",
@@ -590,8 +595,12 @@ export default defineConfig({
       pattern: "https://github.com/lamngockhuong/aws/edit/main/docs/:path",
     },
     footer: {
-      message: "Released under the <a href='https://github.com/lamngockhuong/aws/blob/main/LICENSE'>MIT License</a>.",
+      message:
+        "Released under the <a href='https://github.com/lamngockhuong/aws/blob/main/LICENSE'>MIT License</a>.",
       copyright: "Copyright © 2025 <a href='https://khuong.dev'>Khuong Dev</a>",
     },
+  },
+  sitemap: {
+    hostname: "https://aws.khuong.dev",
   },
 });
