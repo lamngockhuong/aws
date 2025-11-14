@@ -16,6 +16,8 @@
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs",
+    "check:urls": "node scripts/check-aws-docs-urls.js",
+    "check:urls:verbose": "node scripts/check-aws-docs-urls.js --verbose",
     "prepare": "husky || true"
   },
   "dependencies": {
