@@ -244,17 +244,20 @@ Update S3 storage class pricing to reflect latest AWS pricing.
 
 ```bash
 aws/
-├── docs/                    # Documentation source files
-│   ├── .aws-docs-urls.json  # AWS documentation URLs reference
-│   ├── .vitepress/         # VitePress configuration
-│   ├── architecture/        # Architecture patterns
-│   ├── exam/               # Certification exam guides
-│   ├── fundamentals/       # Core AWS concepts
-│   ├── introduction/       # Getting started guides
-│   ├── labs/               # Hands-on labs
-│   ├── real-world/         # Production playbooks
-│   ├── services/           # Service-specific documentation
-│   └── vi/                 # Vietnamese translations
+├── docs/                      # Documentation source files
+│   ├── .aws-docs-urls.json    # AWS documentation URLs reference
+│   ├── .vitepress/            # VitePress configuration
+│   ├── en/                    # English content
+│   │   ├── 01-introduction/   # Getting started guides
+│   │   ├── 02-fundamentals/   # Core AWS concepts
+│   │   ├── 03-services/       # Service-specific documentation
+│   │   ├── 04-architecture/   # Architecture patterns
+│   │   ├── 05-labs/           # Hands-on labs
+│   │   ├── 06-real-world/     # Production playbooks
+│   │   ├── 07-exam/           # Certification exam guides
+│   │   └── 08-glossary/       # Shared terminology
+│   ├── public/                # Static assets (favicons, manifest, icons)
+│   └── vi/                    # Vietnamese translations (mirrors en/ structure)
 ```
 
 ## Guidelines
