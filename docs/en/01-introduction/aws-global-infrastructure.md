@@ -237,4 +237,4 @@ AWS maintains compliance with:
 
 - [What is AWS](./what-is-aws.md) - AWS overview
 - [How to Study AWS](./how-to-study.md) - Study strategies
-- [VPC Networking](../services/networking/vpc/index.md) - Network configuration
+- [VPC Networking](../03-services/networking/vpc/index.md) - Network configuration

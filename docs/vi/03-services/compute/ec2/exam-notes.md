@@ -306,4 +306,4 @@ Các điểm chính về EC2 cho các kỳ thi chứng chỉ AWS. Hướng dẫn
 - [EC2 Basics](./basics.md) - Bắt đầu với EC2
 - [EC2 Instance Types](./instance-types.md) - Instance types
 - [EC2 Best Practices](./best-practices.md) - Best practices
-- [AWS Certification Exam Guides](../../../exam/index.md) - Chuẩn bị thi
+- [AWS Certification Exam Guides](../../../07-exam/index.md) - Chuẩn bị thi

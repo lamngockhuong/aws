@@ -8,10 +8,10 @@ hero:
   actions:
     - theme: brand
       text: Start Learning
-      link: /introduction/
+      link: /01-introduction/
     - theme: alt
       text: Explore Services
-      link: /services/
+      link: /03-services/
 
 features:
   - title: Guided Learning Path
@@ -21,4 +21,3 @@ features:
   - title: Real-world Playbooks
     details: Apply concepts through hands-on labs, architecture blueprints, and cost-optimization guides.
 ---
-

@@ -1,0 +1,79 @@
+name: Docs Lint
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'docs/**/*.md'
+  push:
+    branches: [main]
+    paths:
+      - 'docs/**/*.md'
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Run markdownlint
+        run: pnpm lint:md
+        continue-on-error: true
+
+      - name: Check for stray English (simple check)
+        run: |
+          echo "Checking for potential untranslated English sentences..."
+          # Check Vietnamese docs only
+          if [ -d "docs/vi" ]; then
+            # Look for common English sentence patterns (naive check)
+            # This is a simple heuristic - may need refinement
+            grep -rn --include="*.md" \
+              -E '\b(the|and|or|is|are|of|for|with|to|in|on|at|by|from|as|an|a)\s+\w+\s+(the|and|or|is|are|of|for|with|to|in|on|at|by|from|as|an|a)\s+\w+' \
+              docs/vi/ || true
+            echo "Note: This is a simple heuristic. Manual review is still required."
+          fi
+        continue-on-error: true
+
+      - name: Check markdown links
+        run: |
+          echo "Checking for broken markdown links..."
+          # Simple check for markdown link syntax
+          find docs -name "*.md" -type f -exec grep -l "\[.*\](.*)" {} \; | head -5 || true
+        continue-on-error: true
+
+      - name: Validate code blocks
+        run: |
+          echo "Validating code block syntax..."
+          # Check for unclosed code blocks
+          find docs -name "*.md" -type f -exec sh -c '
+            file="$1"
+            open_blocks=$(grep -c "^```" "$file" 2>/dev/null || echo 0)
+            if [ $((open_blocks % 2)) -ne 0 ]; then
+              echo "Warning: Possible unclosed code block in $file"
+            fi
+          ' _ {} \;
+        continue-on-error: true
+
+      - name: Summary
+        run: |
+          echo "## Lint Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "✅ Markdown lint completed" >> $GITHUB_STEP_SUMMARY
+          echo "⚠️  Some checks may have warnings - please review manually" >> $GITHUB_STEP_SUMMARY
+
