@@ -58,17 +58,24 @@ pnpm docs:preview
 
 ```text
 aws/
-├── docs/                    # Documentation source files
-│   ├── .vitepress/         # VitePress configuration
-│   ├── architecture/       # Architecture patterns and reference designs
-│   ├── exam/               # Certification exam guides and notes
-│   ├── fundamentals/       # Core AWS concepts
-│   ├── introduction/       # Getting started guides
-│   ├── labs/               # Hands-on labs and tutorials
-│   ├── real-world/         # Production playbooks and best practices
-│   ├── services/           # Service-specific documentation
-│   └── vi/                 # Vietnamese translations
-├── openspec/               # OpenSpec project specifications
+├── docs/                      # Documentation source files
+│   ├── .aws-docs-urls.json    # AWS documentation URLs reference
+│   ├── .vitepress/            # VitePress configuration
+│   ├── en/                    # English content
+│   │   ├── 01-introduction/   # Getting started guides
+│   │   ├── 02-fundamentals/   # Core AWS concepts
+│   │   ├── 03-services/       # Service-specific documentation
+│   │   ├── 04-architecture/   # Architecture patterns
+│   │   ├── 05-labs/           # Hands-on labs and tutorials
+│   │   ├── 06-real-world/     # Production playbooks and best practices
+│   │   ├── 07-exam/           # Certification exam guides and notes
+│   │   └── 08-glossary/       # Shared terminology
+│   ├── public/                # Static assets (favicons, manifest, icons)
+│   └── vi/                    # Vietnamese translations (mirror en/ structure)
+├── docs-workflow/             # Authoring workflow & reference files
+│   ├── glossary.md            # Bilingual terminology glossary
+│   └── diagram-templates.md   # Mermaid diagram templates
+├── openspec/                  # OpenSpec project specifications
 └── package.json
 ```
 
