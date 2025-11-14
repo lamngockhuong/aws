@@ -1,394 +1,85 @@
 # EC2 Best Practices
 
-Following best practices helps ensure your EC2 instances are secure, performant, cost-effective, and reliable. This guide covers operational and architectural best practices for EC2.
-
-## Security Best Practices
-
-### IAM Roles
-
-**Use IAM Roles Instead of Access Keys:**
-
-- **No Credentials on Instances**: Roles provide temporary credentials
-- **Automatic Rotation**: Credentials automatically rotated
-- **Least Privilege**: Grant minimum permissions needed
-- **Audit Trail**: All access logged in CloudTrail
-
-**Implementation:**
-
-- Create IAM role with necessary permissions
-- Attach role to instance during launch or after
-- Applications use instance metadata service
-- No access keys stored on instances
-
-### Security Groups
-
-**Principle of Least Privilege:**
-
-- Only allow necessary ports and protocols
-- Restrict source IPs when possible
-- Use security groups as sources
-- Document security group rules
-
-**Best Practices:**
-
-- Separate security groups by function (web, app, DB)
-- Use descriptive names and descriptions
-- Regular security reviews
-- Remove unused security group rules
-
-### Network Security
-
-**VPC Best Practices:**
-
-- Use private subnets for application and database tiers
-- Use public subnets only for load balancers and NAT
-- Implement network ACLs for additional layer
-- Enable VPC Flow Logs for monitoring
-
-**Network Isolation:**
-
-- Separate environments (dev, staging, prod)
-- Use different VPCs or subnets
-- Implement proper routing
-- Use VPC endpoints for AWS services
-
-### Encryption
-
-**Data at Rest:**
-
-- Enable EBS volume encryption
-- Use KMS for key management
-- Encrypt instance store data (if storing sensitive data)
-- Encrypt snapshots
-
-**Data in Transit:**
-
-- Use HTTPS/TLS for all communications
-- Use VPN for remote access
-- Encrypt data before transmission
-- Use secure protocols
-
-### Patch Management
-
-**Regular Updates:**
-
-- Keep operating systems updated
-- Apply security patches promptly
-- Use Systems Manager Patch Manager
-- Test patches in non-production first
-
-**Automation:**
-
-- Use Systems Manager for automated patching
-- Schedule maintenance windows
-- Monitor patch compliance
-- Document patch procedures
-
-## Performance Best Practices
-
-### Instance Selection
-
-**Right-Sizing:**
-
-- Match instance type to workload requirements
-- Monitor CloudWatch metrics
-- Use current generation instances
-- Consider burstable instances for variable workloads
-
-**Instance Types:**
-
-- Use general purpose (M) for balanced workloads
-- Use compute optimized (C) for CPU-intensive
-- Use memory optimized (R) for memory-intensive
-- Use storage optimized (I, D) for I/O-intensive
-
-### Enhanced Networking
-
-**Enable Enhanced Networking:**
-
-- Better network performance
-- Lower latency
-- Higher bandwidth
-- Required for some instance types
-
-**Implementation:**
-
-- Use current generation instances
-- Enable during instance launch
-- Verify after launch
-- Monitor network performance
-
-### Storage Optimization
-
-**EBS Volume Selection:**
-
-- Use gp3 for most workloads
-- Use io1/io2 for high IOPS requirements
-- Use st1/sc1 for sequential workloads
-- Right-size volumes
-
-**Instance Store:**
-
-- Use for temporary data and cache
-- Don't store critical data
-- Backup important data to EBS or S3
-- Understand data lifecycle
-
-### Monitoring
-
-**CloudWatch Metrics:**
-
-- Monitor CPU, memory, disk, network
-- Set up alarms for thresholds
-- Track performance trends
-- Use custom metrics for applications
-
-**Logging:**
-
-- Enable CloudWatch Logs
-- Centralize log collection
-- Implement log retention policies
-- Monitor for errors and anomalies
-
-## Cost Optimization
-
-### Instance Purchasing
-
-**On-Demand Instances:**
-
-- Pay per hour/second
-- No upfront commitment
-- Use for: Variable workloads, testing
-
-**Reserved Instances:**
-
-- 1-year or 3-year term
-- Up to 72% savings
-- Use for: Predictable workloads
-
-**Spot Instances:**
-
-- Up to 90% savings
-- Can be interrupted
-- Use for: Fault-tolerant workloads
-
-**Savings Plans:**
-
-- Flexible pricing model
-- Up to 72% savings
-- Applies across instance families
-
-### Right-Sizing
-
-**Monitor Utilization:**
-
-- Track CPU, memory, network usage
-- Identify over-provisioned instances
-- Identify under-utilized instances
-- Use CloudWatch metrics
-
-**Optimization:**
-
-- Downsize over-provisioned instances
-- Consolidate under-utilized instances
-- Use Auto Scaling for variable workloads
-- Regular reviews
-
-### Auto Scaling
-
-**Benefits:**
-
-- Scale up during high demand
-- Scale down during low demand
-- Cost optimization
-- High availability
-
-**Implementation:**
-
-- Create launch templates
-- Configure scaling policies
-- Set up health checks
-- Monitor scaling activities
-
-### Lifecycle Management
-
-**Stop Unused Instances:**
-
-- Stop instances when not needed
-- Don't pay for stopped instances (EBS still charged)
-- Use scheduling for predictable patterns
-- Automate with Lambda
-
-## High Availability
-
-### Multi-AZ Deployment
-
-**Distribution:**
-
-- Deploy instances across multiple AZs
-- Use Auto Scaling across AZs
-- Use load balancers across AZs
-- Design for AZ failure
-
-**Benefits:**
-
-- Higher availability
-- Reduced risk of correlated failures
-- Better disaster recovery
-- Improved performance (closer to users)
-
-### Health Checks
-
-**Instance Health:**
-
-- Monitor system status checks
-- Monitor instance status checks
-- Set up CloudWatch alarms
-- Automate recovery
-
-**Application Health:**
-
-- Implement application health checks
-- Use load balancer health checks
-- Monitor application metrics
-- Set up automated remediation
-
-### Backup and Recovery
-
-**EBS Snapshots:**
-
-- Regular automated snapshots
-- Test restore procedures
-- Cross-region snapshot copies
-- Long-term retention
-
-**AMI Management:**
-
-- Create AMIs for golden images
-- Version control AMIs
-- Test AMI launches
-- Document AMI contents
-
-## Operational Excellence
-
-### Tagging
-
-**Consistent Tagging:**
-
-- Use consistent tagging strategy
-- Tag for cost allocation
-- Tag for automation
-- Tag for compliance
-
-**Common Tags:**
-
-- Name, Environment, Project
-- Owner, Team, Cost Center
-- Application, Service
-- Compliance, Backup
-
-### Automation
-
-**Infrastructure as Code:**
-
-- Use CloudFormation or Terraform
-- Version control infrastructure
-- Automated deployments
-- Repeatable processes
-
-**Configuration Management:**
-
-- Use Systems Manager
-- Use user data scripts
-- Use configuration management tools
-- Document configurations
-
-### Documentation
-
-**Instance Documentation:**
-
-- Document instance purpose
-- Document configurations
-- Document dependencies
-- Document runbooks
-
-**Procedures:**
-
-- Document launch procedures
-- Document troubleshooting steps
-- Document recovery procedures
-- Keep documentation updated
-
-## Monitoring and Alerting
-
-### CloudWatch Setup
-
-**Metrics:**
-
-- Enable detailed monitoring
-- Create custom metrics
-- Set up dashboards
-- Configure alarms
-
-**Logs:**
-
-- Enable CloudWatch Logs
-- Centralize log collection
-- Set up log retention
-- Monitor for errors
-
-### Alerting
-
-**Critical Alarms:**
-
-- Instance status check failures
-- High CPU/memory usage
-- Disk space issues
-- Network problems
-
-**Alerting Best Practices:**
-
-- Set appropriate thresholds
-- Avoid alert fatigue
-- Route to appropriate channels
-- Test alerting
-
-## Disaster Recovery
-
-### Backup Strategy
-
-**EBS Snapshots:**
-
-- Regular automated snapshots
-- Point-in-time recovery
-- Cross-region copies
-- Test restore procedures
-
-**AMI Backups:**
-
-- Create AMIs regularly
-- Store in multiple regions
-- Version control
-- Test AMI launches
-
-### Recovery Procedures
-
-**Documentation:**
-
-- Document recovery procedures
-- Test recovery regularly
-- Update procedures
-- Train team members
-
-**Automation:**
-
-- Automate recovery where possible
-- Use Systems Manager
-- Use Lambda functions
-- Test automation
-
-## Related Documentation
-
-- [EC2 Basics](./basics.md) - Getting started with EC2
-- [EC2 Cost Optimization](./cost-optimization.md) - Cost optimization
-- [EC2 Troubleshooting](./troubleshooting.md) - Troubleshooting guide
+## Summary
+
+- EC2 best practices focus on **security**, **performance**, **cost**, **availability**, and **operations**, ensuring your environment is safe, efficient, and easy to run at scale.
+- Core patterns include: using **IAM Roles** instead of access keys, designing **VPC and Security Groups** correctly, **right‑sizing** instances, leveraging **Auto Scaling + Multi‑AZ**, and automating backups and patching.
+- Strong tagging, logging and monitoring, plus tested DR procedures, are key for long‑term operational excellence.
+
+## EC2 best practices mindmap
+
+```mermaid
+mindmap
+  root((EC2 Best Practices))
+    Security
+      IAM Roles
+      Security Groups & NACLs
+      Encryption
+      Patch Management
+    Performance
+      Right-size instances
+      Enhanced Networking
+      Storage optimization
+    Cost
+      On-Demand / Reserved / Spot / Savings Plans
+      Auto Scaling
+      Lifecycle management
+    High Availability
+      Multi-AZ
+      Health checks
+      Backup & AMIs
+    Operations
+      Tagging
+      Monitoring & Alerting
+      Automation (IaC, SSM)
+```
+
+## Best Practices
+
+- **Security**
+
+  - Use **IAM Roles** (not embedded access keys) for EC2 applications that call AWS APIs.
+  - Design **Security Groups** with least privilege, split by function (web/app/db), and review rules regularly; layer **Network ACLs** where needed.
+  - Enable **EBS encryption** and encrypt sensitive data in transit with TLS; use KMS for key management.
+  - Automate **patching** via Systems Manager Patch Manager with defined maintenance windows.
+
+- **Performance**
+
+  - **Right‑size instances** and use current‑generation types; monitor CPU, memory, I/O, and network in CloudWatch.
+  - Turn on **enhanced networking** for network‑intensive workloads; consider placement groups if you need very low latency between instances.
+  - Match **EBS volume type** to workload (gp3, io1/io2, st1, sc1) and reserve instance store for fast, temporary data.
+
+- **Cost Optimization**
+
+  - Combine **On‑Demand, Reserved Instances/Savings Plans, and Spot** based on workload predictability and fault‑tolerance.
+  - Use **Auto Scaling** to adjust capacity with demand instead of running peak capacity 24/7.
+  - Implement lifecycle management: stop or terminate unused instances, delete unattached volumes and stale snapshots, and tag everything for cost allocation.
+
+- **High Availability & DR**
+
+  - Deploy across **multiple AZs** using Auto Scaling Groups and load balancers for the web/app tier; use Multi‑AZ options for critical data stores.
+  - Define and monitor **health checks** (system, instance, application) and automate recovery actions.
+  - Use **EBS snapshots and golden AMIs**, test restores regularly, and replicate to other Regions when required.
+
+- **Operations & Monitoring**
+  - Configure **CloudWatch metrics, dashboards, and alarms** for infrastructure and application KPIs.
+  - Centralize logs with **CloudWatch Logs** and apply retention policies; integrate with alerting channels (email, Slack, etc.).
+  - Use **Infrastructure as Code** (CloudFormation/Terraform) and **Systems Manager** for automation, and maintain up‑to‑date runbooks and documentation.
+
+## Exam Notes
+
+- In exam scenarios, the “AWS‑recommended” answer usually combines: **IAM Role + Security Group + Multi‑AZ + Auto Scaling + EBS encryption + monitoring/logging**.
+- Understand how Security Groups and NACLs interact, and when AWS suggests one vs the other; SGs are the primary control in most designs.
+- For cost questions, prefer **Reserved/Savings Plans** for steady workloads, **Spot** for batch or fault‑tolerant jobs, and always mention **right‑sizing** and cleaning up unused resources.
+- High‑availability questions often expect **Multi‑AZ design with load balancers and Auto Scaling**, not single instances in a single AZ.
+
+## AWS documentation
+
+- [Security in Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-security.html)
+- [Amazon EC2 best practices](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-best-practices.html)
+
+## Related docs in this Hub
+
+- [EC2 Basics](./basics.md)
+- [EC2 Cost Optimization](./cost-optimization.md)
+- [EC2 Troubleshooting](./troubleshooting.md)
