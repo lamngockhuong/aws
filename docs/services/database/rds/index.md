@@ -176,6 +176,6 @@ Synchronous replication to a standby instance in a different Availability Zone f
 
 ## Related Services
 
-- [Amazon Aurora](./aurora/index.md) - High-performance MySQL/PostgreSQL compatible
-- [Amazon DynamoDB](./dynamodb/index.md) - NoSQL database
-- [Amazon DocumentDB](./documentdb/index.md) - MongoDB compatible
+- [Amazon Aurora](../aurora/index.md) - High-performance MySQL/PostgreSQL compatible
+- [Amazon DynamoDB](../dynamodb/index.md) - NoSQL database
+- [Amazon DocumentDB](../documentdb/index.md) - MongoDB compatible

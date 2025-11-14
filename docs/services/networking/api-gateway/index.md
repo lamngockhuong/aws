@@ -249,7 +249,7 @@ Data structures that define request and response payloads.
 
 ## Related Services
 
-- [AWS Lambda](../compute/lambda/index.md) - Serverless compute
-- [Amazon Cognito](../security/cognito/index.md) - User authentication
-- [AWS IAM](../security/iam/index.md) - Access control
-- [Amazon CloudWatch](../monitoring/cloudwatch/index.md) - Monitoring
+- [AWS Lambda](../../compute/lambda/index.md) - Serverless compute
+- [Amazon Cognito](../../security/cognito/index.md) - User authentication
+- [AWS IAM](../../security/iam/index.md) - Access control
+- [Amazon CloudWatch](../../monitoring/cloudwatch/index.md) - Monitoring

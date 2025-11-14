@@ -222,7 +222,5 @@ Sequences of log events from the same source. Instances, containers, etc.
 
 ## Related Services
 
-- [AWS X-Ray](./xray/index.md) - Distributed tracing
-- [AWS CloudTrail](./cloudtrail/index.md) - API logging
-- [AWS Systems Manager](./index.md) - Automation
-- [Amazon SNS](./index.md) - Notifications
+- [AWS X-Ray](../xray/index.md) - Distributed tracing
+- [AWS CloudTrail](../cloudtrail/index.md) - API logging

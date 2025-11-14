@@ -227,7 +227,6 @@ Geographic locations where buckets are stored. Choose regions based on latency, 
 
 ## Related Services
 
-- [Amazon CloudFront](../networking/cloudfront/index.md) - Content delivery
-- [AWS Lambda](../compute/lambda/index.md) - Event-driven processing
-- [Amazon Glacier](./index.md) - Long-term archive (now part of S3)
-- [Amazon EBS](./ebs/index.md) - Block storage
+- [Amazon CloudFront](../../networking/cloudfront/index.md) - Content delivery
+- [AWS Lambda](../../compute/lambda/index.md) - Event-driven processing
+- [Amazon EBS](../ebs/index.md) - Block storage

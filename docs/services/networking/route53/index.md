@@ -234,7 +234,5 @@ Determine how Route 53 responds to DNS queries.
 
 ## Related Services
 
-- [Amazon VPC](./vpc/index.md) - Virtual private cloud
-- [Application Load Balancer](./vpc/index.md) - Load balancing
-- [Amazon CloudFront](./cloudfront/index.md) - Content delivery
-- [AWS Certificate Manager](./index.md) - SSL/TLS certificates
+- [Amazon VPC](../vpc/index.md) - Virtual private cloud
+- [Amazon CloudFront](../cloudfront/index.md) - Content delivery

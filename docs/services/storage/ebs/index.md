@@ -193,7 +193,7 @@ Ability to modify volume configuration (size, type, IOPS) without detaching or c
 
 ## Related Services
 
-- [Amazon EC2](../compute/ec2/index.md) - Virtual servers
-- [Amazon EFS](./efs/index.md) - Shared file storage
-- [Amazon FSx](./fsx/index.md) - Managed file systems
-- [Amazon S3](./s3/index.md) - Object storage
+- [Amazon EC2](../../compute/ec2/index.md) - Virtual servers
+- [Amazon EFS](../efs/index.md) - Shared file storage
+- [Amazon FSx](../fsx/index.md) - Managed file systems
+- [Amazon S3](../s3/index.md) - Object storage

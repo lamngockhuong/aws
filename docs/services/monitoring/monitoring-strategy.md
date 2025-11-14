@@ -91,16 +91,19 @@ A comprehensive observability strategy is essential for maintaining reliable, pe
 ### Alert Levels
 
 1. **Critical**: Immediate action required (P0 incidents)
+
    - Service outages
    - Security breaches
    - Data loss events
 
 2. **High**: Urgent attention needed (P1 incidents)
+
    - Performance degradation
    - Error rate spikes
    - Capacity thresholds
 
 3. **Medium**: Monitor and investigate (P2 incidents)
+
    - Warning conditions
    - Trend anomalies
    - Resource utilization

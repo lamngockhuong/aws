@@ -249,7 +249,5 @@ Process of removing objects from CloudFront cache before they expire.
 
 ## Related Services
 
-- [Amazon S3](../storage/s3/index.md) - Object storage
-- [AWS Lambda](../compute/lambda/index.md) - Lambda@Edge
-- [Application Load Balancer](./vpc/index.md) - Custom origin
-- [AWS WAF](./index.md) - Web application firewall
+- [Amazon S3](../../storage/s3/index.md) - Object storage
+- [AWS Lambda](../../compute/lambda/index.md) - Lambda@Edge

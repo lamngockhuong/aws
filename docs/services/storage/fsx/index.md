@@ -208,6 +208,6 @@ Fully managed OpenZFS file system with snapshots, clones, and data compression.
 
 ## Related Services
 
-- [Amazon EBS](./ebs/index.md) - Block storage
-- [Amazon EFS](./efs/index.md) - Elastic file system
-- [Amazon S3](./s3/index.md) - Object storage
+- [Amazon EBS](../ebs/index.md) - Block storage
+- [Amazon EFS](../efs/index.md) - Elastic file system
+- [Amazon S3](../s3/index.md) - Object storage

@@ -227,7 +227,5 @@ Data plane operations that read or write data. Examples:
 
 ## Related Services
 
-- [Amazon S3](../storage/s3/index.md) - Log storage
-- [Amazon CloudWatch](./cloudwatch/index.md) - Log analysis
-- [AWS Security Hub](./index.md) - Security findings
-- [AWS GuardDuty](./index.md) - Threat detection
+- [Amazon S3](../../storage/s3/index.md) - Log storage
+- [Amazon CloudWatch](../cloudwatch/index.md) - Log analysis

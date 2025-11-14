@@ -212,7 +212,4 @@ Stateless firewalls that control traffic at subnet level.
 
 ## Related Services
 
-- [Amazon EC2](../compute/ec2/index.md) - Virtual servers
-- [Application Load Balancer](./index.md) - Load balancing
-- [AWS Direct Connect](./index.md) - Dedicated network
-- [AWS VPN](./index.md) - VPN connectivity
+- [Amazon EC2](../../compute/ec2/index.md) - Virtual servers

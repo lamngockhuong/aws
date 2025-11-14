@@ -203,7 +203,7 @@ Visual representation of your application architecture showing:
 
 ## Related Services
 
-- [Amazon CloudWatch](./cloudwatch/index.md) - Metrics and alarms
-- [AWS CloudTrail](./cloudtrail/index.md) - API logging
-- [API Gateway](../networking/api-gateway/index.md) - API tracing
-- [AWS Lambda](../compute/lambda/index.md) - Function tracing
+- [Amazon CloudWatch](../cloudwatch/index.md) - Metrics and alarms
+- [AWS CloudTrail](../cloudtrail/index.md) - API logging
+- [API Gateway](../../networking/api-gateway/index.md) - API tracing
+- [AWS Lambda](../../compute/lambda/index.md) - Function tracing

@@ -166,7 +166,6 @@ JSON documents that define permissions. Two types:
 
 ## Related Services
 
-- [AWS Organizations](./index.md) - Multi-account management
-- [AWS CloudTrail](../monitoring/cloudtrail/index.md) - API logging
-- [AWS KMS](./kms/index.md) - Key management
-- [Amazon Cognito](./cognito/index.md) - User authentication
+- [AWS CloudTrail](../../monitoring/cloudtrail/index.md) - API logging
+- [AWS KMS](../kms/index.md) - Key management
+- [Amazon Cognito](../cognito/index.md) - User authentication

@@ -94,6 +94,6 @@ Maintains a specified number of running tasks simultaneously. Services handle:
 
 ## Related Services
 
-- [AWS Fargate](./fargate/index.md) - Serverless compute for containers
-- [Amazon EKS](./eks/index.md) - Kubernetes on AWS
+- [AWS Fargate](../fargate/index.md) - Serverless compute for containers
+- [Amazon EKS](../eks/index.md) - Kubernetes on AWS
 - [Amazon EC2](../ec2/index.md) - Virtual servers

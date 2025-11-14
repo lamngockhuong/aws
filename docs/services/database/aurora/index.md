@@ -185,6 +185,6 @@ Aurora is built for the cloud, with a distributed, fault-tolerant, self-healing 
 
 ## Related Services
 
-- [Amazon RDS](./rds/index.md) - Managed relational databases
-- [Amazon DynamoDB](./dynamodb/index.md) - NoSQL database
-- [Amazon DocumentDB](./documentdb/index.md) - MongoDB compatible
+- [Amazon RDS](../rds/index.md) - Managed relational databases
+- [Amazon DynamoDB](../dynamodb/index.md) - NoSQL database
+- [Amazon DocumentDB](../documentdb/index.md) - MongoDB compatible

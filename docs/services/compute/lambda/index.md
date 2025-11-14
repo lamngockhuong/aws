@@ -104,24 +104,28 @@ Distribution mechanism for libraries, custom runtimes, and other function depend
 ## Best Practices
 
 - **Function Design**:
+
   - Keep functions small and focused
   - Use environment variables for configuration
   - Implement proper error handling
   - Use layers for shared code
 
 - **Performance**:
+
   - Minimize cold starts with provisioned concurrency
   - Optimize package size
   - Use connection pooling for databases
   - Implement caching where appropriate
 
 - **Security**:
+
   - Use IAM roles with least privilege
   - Encrypt environment variables
   - Use VPC endpoints for private resources
   - Enable AWS X-Ray for tracing
 
 - **Monitoring**:
+
   - Use CloudWatch for metrics and logs
   - Set up alarms for errors and throttles
   - Monitor duration and memory usage
@@ -144,7 +148,6 @@ Distribution mechanism for libraries, custom runtimes, and other function depend
 
 ## Related Services
 
-- [API Gateway](../networking/api-gateway/index.md) - HTTP APIs and REST APIs
-- [EventBridge](../networking/index.md) - Event-driven architectures
-- [DynamoDB](../database/dynamodb/index.md) - NoSQL database with streams
-- [S3](../storage/s3/index.md) - Object storage with event triggers
+- [API Gateway](../../networking/api-gateway/index.md) - HTTP APIs and REST APIs
+- [DynamoDB](../../database/dynamodb/index.md) - NoSQL database with streams
+- [S3](../../storage/s3/index.md) - Object storage with event triggers

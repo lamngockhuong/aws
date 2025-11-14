@@ -59,6 +59,7 @@ Fargate removes the operational overhead of managing servers, clusters, and cont
 ## Limitations
 
 - **ECS Fargate**:
+
   - No GPU support
   - Limited to specific regions
   - No access to underlying OS

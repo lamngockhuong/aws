@@ -213,7 +213,6 @@ Friendly names for CMKs. Easier to reference than key IDs.
 
 ## Related Services
 
-- [AWS CloudTrail](../monitoring/cloudtrail/index.md) - Audit logging
-- [AWS Secrets Manager](./index.md) - Secrets management
-- [Amazon S3](../storage/s3/index.md) - Object encryption
-- [Amazon EBS](../storage/ebs/index.md) - Volume encryption
+- [AWS CloudTrail](../../monitoring/cloudtrail/index.md) - Audit logging
+- [Amazon S3](../../storage/s3/index.md) - Object encryption
+- [Amazon EBS](../../storage/ebs/index.md) - Volume encryption

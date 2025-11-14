@@ -194,6 +194,6 @@ Application-specific entry points that enforce a root directory and POSIX user/g
 
 ## Related Services
 
-- [Amazon EBS](./ebs/index.md) - Block storage
-- [Amazon FSx](./fsx/index.md) - Managed file systems
-- [Amazon S3](./s3/index.md) - Object storage
+- [Amazon EBS](../ebs/index.md) - Block storage
+- [Amazon FSx](../fsx/index.md) - Managed file systems
+- [Amazon S3](../s3/index.md) - Object storage

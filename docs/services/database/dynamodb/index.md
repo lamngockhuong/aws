@@ -181,6 +181,6 @@ Retrieve a single item by its primary key. Most efficient for single items.
 
 ## Related Services
 
-- [Amazon RDS](./rds/index.md) - Relational databases
-- [Amazon Aurora](./aurora/index.md) - High-performance relational database
-- [Amazon DocumentDB](./documentdb/index.md) - MongoDB compatible
+- [Amazon RDS](../rds/index.md) - Relational databases
+- [Amazon Aurora](../aurora/index.md) - High-performance relational database
+- [Amazon DocumentDB](../documentdb/index.md) - MongoDB compatible

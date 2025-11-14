@@ -197,6 +197,6 @@ Customize authentication flows:
 
 ## Related Services
 
-- [AWS IAM](./iam/index.md) - Access control
-- [API Gateway](../networking/api-gateway/index.md) - API authorization
-- [AWS Lambda](../compute/lambda/index.md) - Authentication triggers
+- [AWS IAM](../iam/index.md) - Access control
+- [API Gateway](../../networking/api-gateway/index.md) - API authorization
+- [AWS Lambda](../../compute/lambda/index.md) - Authentication triggers

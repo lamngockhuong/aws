@@ -119,6 +119,7 @@ Collections of subnets in your VPC where DocumentDB clusters can be deployed.
 ### Migration Options
 
 1. **AWS Database Migration Service (DMS)**
+
    - Continuous data replication
    - Minimal downtime migration
    - Schema conversion support
@@ -178,6 +179,6 @@ Collections of subnets in your VPC where DocumentDB clusters can be deployed.
 
 ## Related Services
 
-- [Amazon RDS](./rds/index.md) - Relational databases
-- [Amazon Aurora](./aurora/index.md) - High-performance relational database
-- [Amazon DynamoDB](./dynamodb/index.md) - NoSQL database
+- [Amazon RDS](../rds/index.md) - Relational databases
+- [Amazon Aurora](../aurora/index.md) - High-performance relational database
+- [Amazon DynamoDB](../dynamodb/index.md) - NoSQL database
