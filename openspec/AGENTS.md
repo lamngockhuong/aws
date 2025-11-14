@@ -521,7 +521,7 @@ Remember: Specs are truth. Changes are proposals. Keep them in sync.
 
 ## Documentation Workflow
 
-**IMPORTANT**: When writing or translating AWS documentation, you MUST follow the documentation capability spec.
+**IMPORTANT**: When creating AWS documentation, you MUST follow the documentation capability spec and content creation guidelines.
 
 ### Key Requirements
 
@@ -532,13 +532,30 @@ Remember: Specs are truth. Changes are proposals. Keep them in sync.
    - `mcp_awslabs_aws-documentation-mcp-server_read_documentation` - Read AWS documentation pages
    - `mcp_awslabs_aws-documentation-mcp-server_recommend` - Discover related documentation
 
-3. **Translation guidelines** (for `docs/vi/`):
+3. **Content creation guidelines** (for `docs/vi/`):
 
-   - Preserve all AWS service names, API names, and technical terms in English
-   - Translate for meaning and clarity, not word-by-word
-   - Maintain professional tone matching AWS documentation style
-   - Keep technical accuracy identical to source
+   - **DO NOT translate everything** - SUMMARIZE key concepts (3-5 main points)
+   - **Create Mermaid diagrams** to illustrate concepts (architecture/flowchart/mindmap/sequence)
+   - **Add Best Practices section** with 5-7 actionable tips
+   - **Keep AWS service names, API names, CLI flags, code blocks UNCHANGED**
+   - **Use professional, concise tone** (match AWS docs style)
+   - **Reference `docs-workflow/glossary.md`** for terminology consistency
 
-4. **Documentation structure**: Follow standard structure (Overview, Key Features, Core Concepts, Use Cases, Best Practices, Integration, Related Services)
+4. **Output format for each section**:
+
+   - Summary (2-3 sentences per concept)
+   - Mermaid diagram with title
+   - Best Practices (bullet points with brief explanations)
+   - Exam Notes (if applicable, 3-5 bullets)
+
+5. **Reference files**:
+
+   - `docs-workflow/glossary.md` - For terminology consistency
+   - `docs-workflow/diagram-templates.md` - For Mermaid diagram examples
+
+6. **AI agent instructions**:
+
+   - `.cursorrules` - Cursor instructions (auto-loaded)
+   - `.github/copilot-instructions.md` - GitHub Copilot instructions (auto-loaded)
 
 See `openspec/specs/documentation/spec.md` for complete requirements and scenarios.

@@ -306,4 +306,4 @@ Key points about EC2 for AWS certification exams. This guide covers EC2 concepts
 - [EC2 Basics](./basics.md) - Getting started with EC2
 - [EC2 Instance Types](./instance-types.md) - Instance types
 - [EC2 Best Practices](./best-practices.md) - Best practices
-- [AWS Certification Exam Guides](../../../exam/index.md) - Exam preparation
+- [AWS Certification Exam Guides](../../../07-exam/index.md) - Exam preparation

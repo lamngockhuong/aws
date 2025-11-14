@@ -193,8 +193,8 @@ Compute services are the foundation of cloud applications. AWS provides multiple
 
 ## Related Services
 
-- [EC2](../services/compute/ec2/index.md) - Virtual servers
-- [Lambda](../services/compute/lambda/index.md) - Serverless compute
-- [ECS](../services/compute/ecs/index.md) - Container orchestration
-- [EKS](../services/compute/eks/index.md) - Kubernetes service
-- [Fargate](../services/compute/fargate/index.md) - Serverless containers
+- [EC2](../03-services/compute/ec2/index.md) - Virtual servers
+- [Lambda](../03-services/compute/lambda/index.md) - Serverless compute
+- [ECS](../03-services/compute/ecs/index.md) - Container orchestration
+- [EKS](../03-services/compute/eks/index.md) - Kubernetes service
+- [Fargate](../03-services/compute/fargate/index.md) - Serverless containers

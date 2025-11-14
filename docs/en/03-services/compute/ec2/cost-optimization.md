@@ -387,4 +387,4 @@ EC2 costs can be a significant portion of your AWS bill. This guide covers strat
 
 - [EC2 Best Practices](./best-practices.md) - EC2 best practices
 - [EC2 Instance Types](./instance-types.md) - Instance type selection
-- [AWS Pricing & Billing](../../../fundamentals/pricing-billing.md) - AWS pricing overview
+- [AWS Pricing & Billing](../../../02-fundamentals/pricing-billing.md) - AWS pricing overview

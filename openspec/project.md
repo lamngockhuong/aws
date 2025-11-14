@@ -65,47 +65,75 @@ reference when working with AWS.
 - Vietnamese localization mirrors the English structure but adapts terminology
   for native speakers
 
-## Translation Guidelines
+## Content Creation Guidelines
 
-When translating AWS documentation from English to Vietnamese, follow these
-principles to ensure professional, natural, and technically accurate output:
+When creating AWS documentation in Vietnamese, follow these principles to ensure
+concise, well-structured, and technically accurate output:
 
-### Core Translation Principles
+### Core Content Creation Principles
 
+- **Summarize, don't translate everything**: Focus on 3-5 key concepts, not all
+  details. Summarize each point in 2-3 sentences.
+- **Create diagrams**: Always include Mermaid diagrams (architecture/flowchart/mindmap/sequence)
+  to illustrate concepts visually.
+- **Add best practices**: Include a Best Practices section with 5-7 actionable tips.
 - **Preserve technical terms**: Keep AWS service names, API names, parameters,
   CLI flags, and code snippets in their original English form (EC2, IAM, S3,
   Route 53, VPC, etc.)
-- **Natural phrasing**: Translate for meaning and clarity, not word-by-word.
-  Prioritize fluent, contextually appropriate technical Vietnamese
-- **Match AWS documentation tone**: Use the same professional, clear style as
-  official AWS documentation
-- **No additions**: Do not add content beyond what exists in the source text
-- **Clarify when needed**: For complex concepts, provide brief explanations to
-  aid reader understanding without altering the original meaning
+- **Professional tone**: Use the same professional, concise style as official
+  AWS documentation
+- **Terminology consistency**: Reference `docs-workflow/glossary.md` for
+  consistent terminology
 
-### Translation Workflow
+### Content Creation Workflow
 
 1. **Fetch source material**: Use `awslabs.aws-documentation-mcp-server_read_documentation`
-   to retrieve the latest AWS documentation before translating
-2. **Translate with context**: Understand the technical context before
-   translating; ensure the Vietnamese version maintains the same technical
-   accuracy
-3. **Verify terminology**: Ensure AWS service names, technical terms, and code
-   examples remain unchanged
-4. **Review for fluency**: Check that the translation reads naturally in
-   Vietnamese while preserving technical precision
+   to retrieve the latest AWS documentation before creating content
+2. **Identify key concepts**: Extract 3-5 main points from the source material
+3. **Summarize concepts**: Write 2-3 sentences per concept, focusing on clarity
+   and understanding
+4. **Create diagrams**: Use appropriate Mermaid diagram type:
+   - Architecture diagrams for system designs
+   - Flowcharts for processes
+   - Mindmaps for concept overviews
+   - Sequence diagrams for interactions
+5. **Add best practices**: Include 5-7 actionable tips based on real-world usage
+6. **Verify terminology**: Ensure AWS service names, technical terms, and code
+   examples remain unchanged. Check `docs-workflow/glossary.md` for consistency
 
-### Example Translation Pattern
+### Output Format
 
-**English**: "EC2 uses eventual consistency. You may see a resource as 'not
-found' right after creation."
+For each section, provide:
 
-**Vietnamese**: "EC2 sử dụng mô hình 'eventual consistency'. Vì vậy ngay sau
-khi tạo tài nguyên, đôi khi bạn có thể gặp lỗi 'không tìm thấy', dù thực tế
-tài nguyên đã tồn tại."
+1. **Summary** (2-3 sentences per concept)
+2. **Mermaid diagram** with descriptive title
+3. **Best Practices** (bullet points with brief explanations)
+4. **Exam Notes** (if applicable, 3-5 bullets)
 
-Note: The translation explains the concept naturally while keeping technical
-terms intact and maintaining the original meaning.
+### Example Content Creation Pattern
+
+**Source (English)**: "EC2 uses eventual consistency. You may see a resource as 'not
+found' right after creation. This is expected behavior and the resource will
+become available shortly."
+
+**Vietnamese Content**:
+
+```markdown
+## Tóm tắt
+
+EC2 sử dụng mô hình eventual consistency, nghĩa là thay đổi có thể mất một
+chút thời gian để lan truyền. Ngay sau khi tạo tài nguyên, bạn có thể gặp
+lỗi "không tìm thấy" - đây là hành vi bình thường.
+
+## Best Practices
+
+- Đợi vài giây sau khi tạo resource trước khi truy vấn
+- Sử dụng retry logic với exponential backoff
+- Kiểm tra resource status trước khi thực hiện operations
+```
+
+Note: The content summarizes the key concept concisely, adds practical best
+practices, and keeps all technical terms in English.
 
 ## Important Constraints
 

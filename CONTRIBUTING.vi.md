@@ -30,14 +30,27 @@ Nếu bạn phát hiện lỗi hoặc có đề xuất cải thiện:
 2. Cập nhật nội dung với thông tin mới nhất
 3. Đảm bảo cả hai phiên bản ngôn ngữ được đồng bộ
 
-### 3. Dịch Thuật
+### 3. Tạo Nội dung
 
-Khi dịch nội dung sang tiếng Việt:
+Khi tạo nội dung tài liệu AWS:
 
-- **Giữ nguyên thuật ngữ kỹ thuật**: EC2, IAM, S3, API, etc.
-- **Dịch theo nghĩa**: Không dịch word-by-word
-- **Đảm bảo độ chính xác**: Giữ nguyên độ chính xác kỹ thuật
+- **Tóm tắt, không dịch toàn bộ**: Tập trung vào 3-5 concepts chính
+- **Thêm diagrams**: Sử dụng Mermaid để minh họa (architecture/flowchart/mindmap)
+- **Best Practices**: Luôn thêm section best practices với tips thực tế
+- **Giữ nguyên thuật ngữ kỹ thuật**: EC2, IAM, S3, API names, CLI flags, code blocks
 - **Tone chuyên nghiệp**: Phù hợp với phong cách tài liệu AWS
+
+#### Tài Nguyên Tạo Nội dung
+
+AI agents (Cursor, Copilot) tự động đọc instructions từ:
+
+- `.cursorrules` - Instructions cho Cursor
+- `.github/copilot-instructions.md` - Instructions cho GitHub Copilot
+
+Reference files:
+
+- **[Glossary](./docs-workflow/glossary.md)**: Từ điển thuật ngữ (English | Vietnamese) - cập nhật thường xuyên!
+- **[Diagram Templates](./docs-workflow/diagram-templates.md)**: Examples cho Mermaid diagrams
 
 ## Quản Lý AWS Documentation URLs
 
@@ -122,25 +135,49 @@ Khi cần thêm service mới:
 4. **Kiểm tra URL**: Đảm bảo URL còn hoạt động
 5. **Nhóm theo logic**: Sắp xếp topics theo thứ tự logic (overview → getting started → advanced)
 
+### Kiểm Tra URL
+
+Sử dụng script validation để kiểm tra xem tất cả URL còn hợp lệ không:
+
+```bash
+# Kiểm tra tất cả URL
+pnpm check:urls
+
+# Kiểm tra với output chi tiết
+pnpm check:urls:verbose
+
+# Kiểm tra URL cho một service cụ thể
+node scripts/check-aws-docs-urls.js --service=ec2
+```
+
+Script sẽ:
+
+- Kiểm tra tất cả URL trong file JSON
+- Báo cáo URL không hợp lệ hoặc bị redirect
+- Hiển thị thông tin chi tiết ở verbose mode
+- Exit với error code nếu có URL không hợp lệ
+
+Xem [scripts/README.md](./scripts/README.md) để biết thêm chi tiết.
+
 ### Sử Dụng với AI
 
 Khi yêu cầu AI cập nhật tài liệu, bạn có thể:
 
-**Cách 1: Tham chiếu trực tiếp**
+#### Cách 1: Tham chiếu trực tiếp
 
-```
+```txt
 Hãy lấy thông tin từ EC2 overview URL và cập nhật file EC2 index.md
 ```
 
-**Cách 2: Chỉ định topic cụ thể**
+#### Cách 2: Chỉ định topic cụ thể
 
-```
+```txt
 Hãy lấy thông tin từ EC2 instanceTypes topic và cập nhật file instance-types.md
 ```
 
-**Cách 3: Cung cấp URL mới**
+#### Cách 3: Cung cấp URL mới
 
-```
+```txt
 Hãy thêm URL này vào file .aws-docs-urls.json cho EC2:
 https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/new-topic.html
 Với topic name là "newTopic"
@@ -208,7 +245,7 @@ Update S3 storage class pricing to reflect latest AWS pricing.
 
 ```bash
 aws/
-├── docs/                    # Documentation source files
+├── docs/                    # Documentation source files (cho website)
 │   ├── .aws-docs-urls.json  # AWS documentation URLs reference
 │   ├── .vitepress/         # VitePress configuration
 │   ├── architecture/        # Architecture patterns
@@ -219,6 +256,12 @@ aws/
 │   ├── real-world/         # Production playbooks
 │   ├── services/           # Service-specific documentation
 │   └── vi/                 # Vietnamese translations
+├── docs-workflow/           # Workflow và reference files
+│   ├── glossary.md         # Từ điển thuật ngữ
+│   └── diagram-templates.md # Mermaid diagram templates
+├── .cursorrules            # Cursor AI instructions
+└── .github/
+    └── copilot-instructions.md # GitHub Copilot instructions
 ```
 
 ## Guidelines
@@ -242,6 +285,7 @@ aws/
 - **Cả hai phiên bản**: Đảm bảo cả tiếng Anh và tiếng Việt được cập nhật
 - **Nội dung tương đương**: Nội dung phải tương đương, không chỉ dịch word-by-word
 - **Thuật ngữ nhất quán**: Sử dụng thuật ngữ nhất quán trong cả hai ngôn ngữ
+- **Tham khảo Glossary**: Luôn tra cứu `docs-workflow/glossary.md` để đảm bảo consistency
 
 ## Câu Hỏi?
 

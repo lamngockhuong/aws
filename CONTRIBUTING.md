@@ -39,6 +39,18 @@ When translating content to Vietnamese:
 - **Maintain accuracy**: Ensure technical precision matches the source
 - **Professional tone**: Match AWS documentation style
 
+#### Content Creation Resources
+
+AI agents (Cursor, Copilot) automatically read instructions from:
+
+- `.cursorrules` - Cursor instructions
+- `.github/copilot-instructions.md` - GitHub Copilot instructions
+
+Reference files:
+
+- **[Glossary](./docs-workflow/glossary.md)**: Terminology dictionary (English | Vietnamese) - keep this updated!
+- **[Diagram Templates](./docs-workflow/diagram-templates.md)**: Mermaid diagram examples
+
 ## Managing AWS Documentation URLs
 
 The `.aws-docs-urls.json` file contains official AWS documentation URLs for each service, used by AI to fetch the latest information from AWS MCP.
@@ -150,19 +162,19 @@ See [scripts/README.md](./scripts/README.md) for more details.
 
 When requesting AI to update documentation, you can:
 
-**Method 1: Direct reference**
+#### Method 1: Direct reference
 
 ```txt
 Get information from EC2 overview URL and update EC2 index.md file
 ```
 
-**Method 2: Specify specific topic**
+#### Method 2: Specify specific topic
 
 ```txt
 Get information from EC2 instanceTypes topic and update instance-types.md file
 ```
 
-**Method 3: Provide new URL**
+#### Method 3: Provide new URL
 
 ```txt
 Add this URL to .aws-docs-urls.json for EC2:

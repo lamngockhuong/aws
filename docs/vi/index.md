@@ -8,10 +8,10 @@ hero:
   actions:
     - theme: brand
       text: Bắt đầu học
-      link: /vi/introduction/
+      link: /vi/01-introduction/
     - theme: alt
       text: Khám phá dịch vụ
-      link: /vi/services/
+      link: /vi/03-services/
 
 features:
   - title: Lộ trình học tập có hướng dẫn
@@ -21,4 +21,3 @@ features:
   - title: Playbook thực tế
     details: Áp dụng khái niệm qua lab thực hành, blueprint kiến trúc và hướng dẫn tối ưu chi phí.
 ---
-

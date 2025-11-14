@@ -387,4 +387,4 @@ Chi phí EC2 có thể là một phần đáng kể trong hóa đơn AWS của b
 
 - [EC2 Best Practices](./best-practices.md) - Best practices EC2
 - [EC2 Instance Types](./instance-types.md) - Lựa chọn instance type
-- [AWS Pricing & Billing](../../../fundamentals/pricing-billing.md) - Tổng quan giá cả AWS
+- [AWS Pricing & Billing](../../../02-fundamentals/pricing-billing.md) - Tổng quan giá cả AWS
