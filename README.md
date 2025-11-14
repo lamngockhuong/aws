@@ -85,6 +85,10 @@ When translating content to Vietnamese:
 
 ### Contributing
 
+We welcome contributions! Please see [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelines.
+
+Quick guidelines:
+
 1. Follow [Conventional Commits](https://www.conventionalcommits.org/) format
 2. Keep documentation focused: one topic per file
 3. Use clear headings and task lists where helpful

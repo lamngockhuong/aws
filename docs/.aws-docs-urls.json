@@ -1,0 +1,332 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2024-01-01",
+    "description": "AWS Documentation URLs for each service - used by AI to fetch latest information from AWS MCP"
+  },
+  "services": {
+    "compute": {
+      "ec2": {
+        "name": "Amazon EC2",
+        "baseUrl": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide",
+        "topics": {
+          "overview": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html",
+          "gettingStarted": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html",
+          "instanceTypes": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html",
+          "launchingInstances": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html",
+          "connectingInstances": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstances.html",
+          "networking": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html",
+          "storage": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html",
+          "security": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html",
+          "monitoring": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring_ec2.html",
+          "pricing": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/billing.html",
+          "spotInstances": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html",
+          "reservedInstances": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-reserved-instances.html",
+          "autoScaling": "https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html"
+        }
+      },
+      "lambda": {
+        "name": "AWS Lambda",
+        "baseUrl": "https://docs.aws.amazon.com/lambda/latest/dg",
+        "topics": {
+          "overview": "https://docs.aws.amazon.com/lambda/latest/dg/welcome.html",
+          "gettingStarted": "https://docs.aws.amazon.com/lambda/latest/dg/getting-started.html",
+          "functions": "https://docs.aws.amazon.com/lambda/latest/dg/lambda-functions.html",
+          "invocation": "https://docs.aws.amazon.com/lambda/latest/dg/lambda-invocation.html",
+          "configuration": "https://docs.aws.amazon.com/lambda/latest/dg/configuration.html",
+          "environment": "https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html",
+          "layers": "https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html",
+          "monitoring": "https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions.html",
+          "security": "https://docs.aws.amazon.com/lambda/latest/dg/lambda-security.html",
+          "pricing": "https://docs.aws.amazon.com/lambda/latest/dg/lambda-pricing.html"
+        }
+      },
+      "ecs": {
+        "name": "Amazon ECS",
+        "baseUrl": "https://docs.aws.amazon.com/AmazonECS/latest/developerguide",
+        "topics": {
+          "overview": "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/Welcome.html",
+          "gettingStarted": "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/getting-started.html",
+          "clusters": "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/clusters.html",
+          "taskDefinitions": "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definitions.html",
+          "tasks": "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/tasks.html",
+          "services": "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html",
+          "fargate": "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS_Fargate.html",
+          "networking": "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/networking.html",
+          "security": "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/security.html",
+          "monitoring": "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/monitoring.html"
+        }
+      },
+      "eks": {
+        "name": "Amazon EKS",
+        "baseUrl": "https://docs.aws.amazon.com/eks/latest/userguide",
+        "topics": {
+          "overview": "https://docs.aws.amazon.com/eks/latest/userguide/what-is-eks.html",
+          "gettingStarted": "https://docs.aws.amazon.com/eks/latest/userguide/getting-started.html",
+          "clusters": "https://docs.aws.amazon.com/eks/latest/userguide/clusters.html",
+          "nodeGroups": "https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html",
+          "fargate": "https://docs.aws.amazon.com/eks/latest/userguide/fargate.html",
+          "networking": "https://docs.aws.amazon.com/eks/latest/userguide/networking.html",
+          "security": "https://docs.aws.amazon.com/eks/latest/userguide/security.html",
+          "monitoring": "https://docs.aws.amazon.com/eks/latest/userguide/monitoring.html"
+        }
+      },
+      "fargate": {
+        "name": "AWS Fargate",
+        "baseUrl": "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS_Fargate.html",
+        "topics": {
+          "overview": "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS_Fargate.html",
+          "gettingStarted": "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/getting-started-fargate.html",
+          "taskConfiguration": "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#fargate-task-definitions",
+          "networking": "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/fargate-networking.html",
+          "pricing": "https://aws.amazon.com/fargate/pricing/"
+        }
+      }
+    },
+    "storage": {
+      "s3": {
+        "name": "Amazon S3",
+        "baseUrl": "https://docs.aws.amazon.com/AmazonS3/latest/userguide",
+        "topics": {
+          "overview": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html",
+          "gettingStarted": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/GetStartedWithS3.html",
+          "buckets": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingBucket.html",
+          "objects": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingObjects.html",
+          "storageClasses": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html",
+          "versioning": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/Versioning.html",
+          "lifecycle": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html",
+          "encryption": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingEncryption.html",
+          "security": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/security.html",
+          "pricing": "https://aws.amazon.com/s3/pricing/"
+        }
+      },
+      "ebs": {
+        "name": "Amazon EBS",
+        "baseUrl": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html",
+        "topics": {
+          "overview": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html",
+          "volumeTypes": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html",
+          "snapshots": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html",
+          "encryption": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html",
+          "performance": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimize.html",
+          "pricing": "https://aws.amazon.com/ebs/pricing/"
+        }
+      },
+      "efs": {
+        "name": "Amazon EFS",
+        "baseUrl": "https://docs.aws.amazon.com/efs/latest/ug",
+        "topics": {
+          "overview": "https://docs.aws.amazon.com/efs/latest/ug/whatisefs.html",
+          "gettingStarted": "https://docs.aws.amazon.com/efs/latest/ug/getting-started.html",
+          "performance": "https://docs.aws.amazon.com/efs/latest/ug/performance.html",
+          "storageClasses": "https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html",
+          "security": "https://docs.aws.amazon.com/efs/latest/ug/security-considerations.html",
+          "pricing": "https://aws.amazon.com/efs/pricing/"
+        }
+      },
+      "fsx": {
+        "name": "Amazon FSx",
+        "baseUrl": "https://docs.aws.amazon.com/fsx/latest",
+        "topics": {
+          "overview": "https://docs.aws.amazon.com/fsx/latest/WindowsGuide/what-is.html",
+          "windowsFileServer": "https://docs.aws.amazon.com/fsx/latest/WindowsGuide/what-is.html",
+          "lustre": "https://docs.aws.amazon.com/fsx/latest/LustreGuide/what-is.html",
+          "netappOntap": "https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/what-is.html",
+          "openZFS": "https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/what-is-fsx.html"
+        }
+      }
+    },
+    "database": {
+      "rds": {
+        "name": "Amazon RDS",
+        "baseUrl": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide",
+        "topics": {
+          "overview": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html",
+          "gettingStarted": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.html",
+          "instances": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.html",
+          "multiAz": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.MultiAZ.html",
+          "readReplicas": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html",
+          "backup": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html",
+          "security": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.html",
+          "monitoring": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MonitoringOverview.html",
+          "pricing": "https://aws.amazon.com/rds/pricing/"
+        }
+      },
+      "dynamodb": {
+        "name": "Amazon DynamoDB",
+        "baseUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide",
+        "topics": {
+          "overview": "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html",
+          "gettingStarted": "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GettingStartedDynamoDB.html",
+          "tables": "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.CoreComponents.html",
+          "capacityModes": "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html",
+          "globalTables": "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GlobalTables.html",
+          "streams": "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.html",
+          "security": "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/security.html",
+          "bestPractices": "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/best-practices.html",
+          "pricing": "https://aws.amazon.com/dynamodb/pricing/"
+        }
+      },
+      "aurora": {
+        "name": "Amazon Aurora",
+        "baseUrl": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide",
+        "topics": {
+          "overview": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html",
+          "gettingStarted": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.GettingStarted.html",
+          "clusters": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.html",
+          "serverless": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html",
+          "globalDatabase": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html",
+          "backup": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html",
+          "performance": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Monitoring.html"
+        }
+      },
+      "documentdb": {
+        "name": "Amazon DocumentDB",
+        "baseUrl": "https://docs.aws.amazon.com/documentdb/latest/developerguide",
+        "topics": {
+          "overview": "https://docs.aws.amazon.com/documentdb/latest/developerguide/what-is.html",
+          "gettingStarted": "https://docs.aws.amazon.com/documentdb/latest/developerguide/getting-started.html",
+          "clusters": "https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-create.html",
+          "security": "https://docs.aws.amazon.com/documentdb/latest/developerguide/security.html",
+          "backup": "https://docs.aws.amazon.com/documentdb/latest/developerguide/backup-restore.html"
+        }
+      }
+    },
+    "networking": {
+      "vpc": {
+        "name": "Amazon VPC",
+        "baseUrl": "https://docs.aws.amazon.com/vpc/latest/userguide",
+        "topics": {
+          "overview": "https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html",
+          "gettingStarted": "https://docs.aws.amazon.com/vpc/latest/userguide/getting-started-ipv4.html",
+          "subnets": "https://docs.aws.amazon.com/vpc/latest/userguide/configure-subnets.html",
+          "securityGroups": "https://docs.aws.amazon.com/vpc/latest/userguide/security-groups.html",
+          "networkAcls": "https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html",
+          "internetGateway": "https://docs.aws.amazon.com/vpc/latest/userguide/igw.html",
+          "natGateway": "https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html",
+          "vpcPeering": "https://docs.aws.amazon.com/vpc/latest/userguide/vpc-peering.html",
+          "transitGateway": "https://docs.aws.amazon.com/vpc/latest/tgw/what-is.html",
+          "vpcEndpoints": "https://docs.aws.amazon.com/vpc/latest/privatelink/vpc-endpoints.html"
+        }
+      },
+      "cloudfront": {
+        "name": "Amazon CloudFront",
+        "baseUrl": "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide",
+        "topics": {
+          "overview": "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html",
+          "gettingStarted": "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/GettingStarted.html",
+          "distributions": "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html",
+          "caching": "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html",
+          "lambdaEdge": "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-at-the-edge.html",
+          "security": "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html#CloudFrontSecurity",
+          "pricing": "https://aws.amazon.com/cloudfront/pricing/"
+        }
+      },
+      "route53": {
+        "name": "Amazon Route 53",
+        "baseUrl": "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide",
+        "topics": {
+          "overview": "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/Welcome.html",
+          "gettingStarted": "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/getting-started.html",
+          "hostedZones": "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/hosted-zones-working-with.html",
+          "routingPolicies": "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html",
+          "healthChecks": "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/health-checks-overview.html",
+          "domainRegistration": "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-register.html"
+        }
+      },
+      "apiGateway": {
+        "name": "Amazon API Gateway",
+        "baseUrl": "https://docs.aws.amazon.com/apigateway/latest/developerguide",
+        "topics": {
+          "overview": "https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html",
+          "gettingStarted": "https://docs.aws.amazon.com/apigateway/latest/developerguide/getting-started.html",
+          "restApis": "https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-rest-api.html",
+          "httpApis": "https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api.html",
+          "websocketApis": "https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html",
+          "security": "https://docs.aws.amazon.com/apigateway/latest/developerguide/security.html",
+          "monitoring": "https://docs.aws.amazon.com/apigateway/latest/developerguide/monitoring-cloudwatch.html"
+        }
+      }
+    },
+    "security": {
+      "iam": {
+        "name": "AWS IAM",
+        "baseUrl": "https://docs.aws.amazon.com/IAM/latest/UserGuide",
+        "topics": {
+          "overview": "https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html",
+          "gettingStarted": "https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started.html",
+          "users": "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users.html",
+          "groups": "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups.html",
+          "roles": "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html",
+          "policies": "https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html",
+          "bestPractices": "https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html"
+        }
+      },
+      "cognito": {
+        "name": "Amazon Cognito",
+        "baseUrl": "https://docs.aws.amazon.com/cognito/latest/developerguide",
+        "topics": {
+          "overview": "https://docs.aws.amazon.com/cognito/latest/developerguide/what-is-amazon-cognito.html",
+          "userPools": "https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html",
+          "identityPools": "https://docs.aws.amazon.com/cognito/latest/developerguide/identity-pools.html",
+          "gettingStarted": "https://docs.aws.amazon.com/cognito/latest/developerguide/getting-started.html"
+        }
+      },
+      "kms": {
+        "name": "AWS KMS",
+        "baseUrl": "https://docs.aws.amazon.com/kms/latest/developerguide",
+        "topics": {
+          "overview": "https://docs.aws.amazon.com/kms/latest/developerguide/overview.html",
+          "gettingStarted": "https://docs.aws.amazon.com/kms/latest/developerguide/getting-started.html",
+          "keys": "https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys",
+          "encryption": "https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_decrypt",
+          "keyRotation": "https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html",
+          "bestPractices": "https://docs.aws.amazon.com/kms/latest/developerguide/best-practices.html"
+        }
+      }
+    },
+    "monitoring": {
+      "cloudwatch": {
+        "name": "Amazon CloudWatch",
+        "baseUrl": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring",
+        "topics": {
+          "overview": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html",
+          "gettingStarted": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/GettingStarted.html",
+          "metrics": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/working_with_metrics.html",
+          "logs": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html",
+          "alarms": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html",
+          "dashboards": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html"
+        }
+      },
+      "cloudtrail": {
+        "name": "AWS CloudTrail",
+        "baseUrl": "https://docs.aws.amazon.com/cloudtrail/latest/userguide",
+        "topics": {
+          "overview": "https://docs.aws.amazon.com/cloudtrail/latest/userguide/cloudtrail-user-guide.html",
+          "gettingStarted": "https://docs.aws.amazon.com/cloudtrail/latest/userguide/cloudtrail-tutorial.html",
+          "trails": "https://docs.aws.amazon.com/cloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.html",
+          "events": "https://docs.aws.amazon.com/cloudtrail/latest/userguide/cloudtrail-concepts.html#cloudtrail-concepts-events",
+          "insights": "https://docs.aws.amazon.com/cloudtrail/latest/userguide/cloudtrail-lake-insights.html"
+        }
+      },
+      "xray": {
+        "name": "AWS X-Ray",
+        "baseUrl": "https://docs.aws.amazon.com/xray/latest/devguide",
+        "topics": {
+          "overview": "https://docs.aws.amazon.com/xray/latest/devguide/aws-xray.html",
+          "gettingStarted": "https://docs.aws.amazon.com/xray/latest/devguide/xray-gettingstarted.html",
+          "concepts": "https://docs.aws.amazon.com/xray/latest/devguide/xray-concepts.html",
+          "instrumentation": "https://docs.aws.amazon.com/xray/latest/devguide/xray-instrumenting-your-app.html",
+          "serviceMap": "https://docs.aws.amazon.com/xray/latest/devguide/xray-console.html"
+        }
+      }
+    }
+  },
+  "general": {
+    "globalInfrastructure": "https://docs.aws.amazon.com/general/latest/gr/aws-general-information.html",
+    "pricing": "https://aws.amazon.com/pricing/",
+    "wellArchitected": "https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html",
+    "securityBestPractices": "https://docs.aws.amazon.com/security/index.html"
+  }
+}
+
