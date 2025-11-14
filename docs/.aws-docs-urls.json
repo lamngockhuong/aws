@@ -126,7 +126,7 @@
       },
       "fsx": {
         "name": "Amazon FSx",
-        "baseUrl": "https://docs.aws.amazon.com/fsx/latest",
+        "baseUrl": "https://docs.aws.amazon.com/fsx/",
         "topics": {
           "overview": "https://docs.aws.amazon.com/fsx/latest/WindowsGuide/what-is.html",
           "windowsFileServer": "https://docs.aws.amazon.com/fsx/latest/WindowsGuide/what-is.html",
@@ -300,13 +300,13 @@
       },
       "cloudtrail": {
         "name": "AWS CloudTrail",
-        "baseUrl": "https://docs.aws.amazon.com/cloudtrail/latest/userguide",
+        "baseUrl": "https://docs.aws.amazon.com/cloudtrail/",
         "topics": {
-          "overview": "https://docs.aws.amazon.com/cloudtrail/latest/userguide/cloudtrail-user-guide.html",
-          "gettingStarted": "https://docs.aws.amazon.com/cloudtrail/latest/userguide/cloudtrail-tutorial.html",
-          "trails": "https://docs.aws.amazon.com/cloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.html",
-          "events": "https://docs.aws.amazon.com/cloudtrail/latest/userguide/cloudtrail-concepts.html#cloudtrail-concepts-events",
-          "insights": "https://docs.aws.amazon.com/cloudtrail/latest/userguide/cloudtrail-lake-insights.html"
+          "overview": "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html",
+          "gettingStarted": "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-tutorial.html",
+          "trails": "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-trails.html",
+          "events": "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html",
+          "insights": "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-insights-events-with-cloudtrail.html"
         }
       },
       "xray": {

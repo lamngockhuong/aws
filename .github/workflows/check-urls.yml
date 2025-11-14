@@ -1,0 +1,30 @@
+name: Check AWS Docs URLs
+
+on:
+  push:
+    paths:
+      - 'docs/.aws-docs-urls.json'
+  pull_request:
+    paths:
+      - 'docs/.aws-docs-urls.json'
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  check-urls:
+    name: Check AWS Documentation URLs
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+      - uses: pnpm/action-setup@v4
+      - name: Setup Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: pnpm
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Check URLs
+        run: pnpm check:urls
+
