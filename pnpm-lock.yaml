@@ -10,7 +10,7 @@ importers:
     dependencies:
       '@miletorix/vitepress-back-to-top-button':
         specifier: 1.0.1
-        version: 1.0.1(vitepress@2.0.0-alpha.13(@types/node@24.10.1)(postcss@8.5.6))(vue@3.5.24)
+        version: 1.0.1(vitepress@2.0.0-alpha.15(@types/node@24.10.1)(postcss@8.5.6))(vue@3.5.24)
       '@miletorix/vitepress-image-viewer':
         specifier: 1.1.4
         version: 1.1.4(vue@3.5.24)
@@ -40,8 +40,8 @@ importers:
         specifier: 2.0.3
         version: 2.0.3(sharp@0.34.5)(svgo@4.0.0)(vite@7.2.2(@types/node@24.10.1))
       vitepress:
-        specifier: 2.0.0-alpha.13
-        version: 2.0.0-alpha.13(@types/node@24.10.1)(postcss@8.5.6)
+        specifier: 2.0.0-alpha.15
+        version: 2.0.0-alpha.15(@types/node@24.10.1)(postcss@8.5.6)
 
 packages:
 
@@ -259,8 +259,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@iconify-json/simple-icons@1.2.58':
-    resolution: {integrity: sha512-XtXEoRALqztdNc9ujYBj2tTCPKdIPKJBdLNDebFF46VV1aOAwTbAYMgNsK5GMCpTJupLCmpBWDn+gX5SpECorQ==}
+  '@iconify-json/simple-icons@1.2.59':
+    resolution: {integrity: sha512-fYx/InyQsWFW4wVxWka3CGDJ6m/fXoTqWBSl+oA3FBXO5RhPAb6S3Y5bRgCPnrYevErH8VjAL0TZevIqlN2PhQ==}
 
   '@iconify/types@2.0.0':
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
@@ -734,14 +734,14 @@ packages:
   '@vue/compiler-ssr@3.5.24':
     resolution: {integrity: sha512-trOvMWNBMQ/odMRHW7Ae1CdfYx+7MuiQu62Jtu36gMLXcaoqKvAyh+P73sYG9ll+6jLB6QPovqoKGGZROzkFFg==}
 
-  '@vue/devtools-api@8.0.3':
-    resolution: {integrity: sha512-YxZE7xNvvfq5XmjJh1ml+CzVNrRjuZYCuT5Xjj0u9RlXU7za/MRuZDUXcKfp0j7IvYkDut49vlKqbiQ1xhXP2w==}
+  '@vue/devtools-api@8.0.5':
+    resolution: {integrity: sha512-DgVcW8H/Nral7LgZEecYFFYXnAvGuN9C3L3DtWekAncFBedBczpNW8iHKExfaM559Zm8wQWrwtYZ9lXthEHtDw==}
 
-  '@vue/devtools-kit@8.0.3':
-    resolution: {integrity: sha512-UF4YUOVGdfzXLCv5pMg2DxocB8dvXz278fpgEE+nJ/DRALQGAva7sj9ton0VWZ9hmXw+SV8yKMrxP2MpMhq9Wg==}
+  '@vue/devtools-kit@8.0.5':
+    resolution: {integrity: sha512-q2VV6x1U3KJMTQPUlRMyWEKVbcHuxhqJdSr6Jtjz5uAThAIrfJ6WVZdGZm5cuO63ZnSUz0RCsVwiUUb0mDV0Yg==}
 
-  '@vue/devtools-shared@8.0.3':
-    resolution: {integrity: sha512-s/QNll7TlpbADFZrPVsaUNPCOF8NvQgtgmmB7Tip6pLf/HcOvBTly0lfLQ0Eylu9FQ4OqBhFpLyBgwykiSf8zw==}
+  '@vue/devtools-shared@8.0.5':
+    resolution: {integrity: sha512-bRLn6/spxpmgLk+iwOrR29KrYnJjG9DGpHGkDFG82UM21ZpJ39ztUT9OXX3g+usW7/b2z+h46I9ZiYyB07XMXg==}
 
   '@vue/reactivity@3.5.24':
     resolution: {integrity: sha512-BM8kBhtlkkbnyl4q+HiF5R5BL0ycDPfihowulm02q3WYp2vxgPcJuZO866qa/0u3idbMntKEtVNuAUp5bw4teg==}
@@ -1773,8 +1773,8 @@ packages:
       mermaid: ^11.0.0
       vue: ^3.0.0
 
-  vitepress@2.0.0-alpha.13:
-    resolution: {integrity: sha512-bnUfnyL3TRqqYvOxQ68MxbFyI6qkQ8IQnhwIiGLSMF9GXloyfBCV1hnVJE6yA+Rlk+T+y19gzDKjKIMpiCIUvA==}
+  vitepress@2.0.0-alpha.15:
+    resolution: {integrity: sha512-jhjSYd10Z6RZiKOa7jy0xMVf5NB5oSc/lS3bD/QoUc6V8PrvQR5JhC9104NEt6+oTGY/ftieVWxY9v7YI+1IjA==}
     hasBin: true
     peerDependencies:
       markdown-it-mathjax3: ^4
@@ -1972,7 +1972,7 @@ snapshots:
   '@esbuild/win32-x64@0.25.12':
     optional: true
 
-  '@iconify-json/simple-icons@1.2.58':
+  '@iconify-json/simple-icons@1.2.59':
     dependencies:
       '@iconify/types': 2.0.0
 
@@ -2108,9 +2108,9 @@ snapshots:
     dependencies:
       langium: 3.3.1
 
-  '@miletorix/vitepress-back-to-top-button@1.0.1(vitepress@2.0.0-alpha.13(@types/node@24.10.1)(postcss@8.5.6))(vue@3.5.24)':
+  '@miletorix/vitepress-back-to-top-button@1.0.1(vitepress@2.0.0-alpha.15(@types/node@24.10.1)(postcss@8.5.6))(vue@3.5.24)':
     dependencies:
-      vitepress: 2.0.0-alpha.13(@types/node@24.10.1)(postcss@8.5.6)
+      vitepress: 2.0.0-alpha.15(@types/node@24.10.1)(postcss@8.5.6)
       vue: 3.5.24
 
   '@miletorix/vitepress-image-viewer@1.1.4(vue@3.5.24)':
@@ -2424,13 +2424,13 @@ snapshots:
       '@vue/compiler-dom': 3.5.24
       '@vue/shared': 3.5.24
 
-  '@vue/devtools-api@8.0.3':
+  '@vue/devtools-api@8.0.5':
     dependencies:
-      '@vue/devtools-kit': 8.0.3
+      '@vue/devtools-kit': 8.0.5
 
-  '@vue/devtools-kit@8.0.3':
+  '@vue/devtools-kit@8.0.5':
     dependencies:
-      '@vue/devtools-shared': 8.0.3
+      '@vue/devtools-shared': 8.0.5
       birpc: 2.8.0
       hookable: 5.5.3
       mitt: 3.0.1
@@ -2438,7 +2438,7 @@ snapshots:
       speakingurl: 14.0.1
       superjson: 2.2.5
 
-  '@vue/devtools-shared@8.0.3':
+  '@vue/devtools-shared@8.0.5':
     dependencies:
       rfdc: 1.4.1
 
@@ -3623,17 +3623,17 @@ snapshots:
       mermaid: 11.12.1
       vue: 3.5.24
 
-  vitepress@2.0.0-alpha.13(@types/node@24.10.1)(postcss@8.5.6):
+  vitepress@2.0.0-alpha.15(@types/node@24.10.1)(postcss@8.5.6):
     dependencies:
       '@docsearch/css': 4.3.2
       '@docsearch/js': 4.3.2
-      '@iconify-json/simple-icons': 1.2.58
+      '@iconify-json/simple-icons': 1.2.59
       '@shikijs/core': 3.15.0
       '@shikijs/transformers': 3.15.0
       '@shikijs/types': 3.15.0
       '@types/markdown-it': 14.1.2
       '@vitejs/plugin-vue': 6.0.1(vite@7.2.2(@types/node@24.10.1))(vue@3.5.24)
-      '@vue/devtools-api': 8.0.3
+      '@vue/devtools-api': 8.0.5
       '@vue/shared': 3.5.24
       '@vueuse/core': 14.0.0(vue@3.5.24)
       '@vueuse/integrations': 14.0.0(focus-trap@7.6.6)(vue@3.5.24)
