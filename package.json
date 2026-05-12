@@ -22,7 +22,7 @@
     "prepare": "husky || true"
   },
   "dependencies": {
-    "@miletorix/vitepress-back-to-top-button": "1.0.1",
+    "@miletorix/vitepress-back-to-top-button": "1.0.3",
     "@miletorix/vitepress-image-viewer": "1.1.4",
     "vitepress-mermaid-renderer": "1.1.5"
   },
