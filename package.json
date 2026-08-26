@@ -31,7 +31,7 @@
     "husky": "9.1.7",
     "markdown-it-task-lists": "2.1.1",
     "markdownlint-cli": "0.45.0",
-    "sharp": "0.34.5",
+    "sharp": "0.35.4",
     "svgo": "4.0.0",
     "vite-plugin-image-optimizer": "2.0.3",
     "vitepress": "2.0.0-alpha.13"
