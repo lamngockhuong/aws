@@ -24,7 +24,7 @@
   "dependencies": {
     "@miletorix/vitepress-back-to-top-button": "1.0.1",
     "@miletorix/vitepress-image-viewer": "1.1.4",
-    "vitepress-mermaid-renderer": "1.1.5"
+    "vitepress-mermaid-renderer": "1.2.1"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "20.0.0",
